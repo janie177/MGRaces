@@ -2,6 +2,8 @@ package com.minegusta.mgraces;
 
 import com.google.common.collect.Lists;
 import com.minegusta.mgraces.commands.RaceCommand;
+import com.minegusta.mgraces.data.LoadToData;
+import com.minegusta.mgraces.files.DefaultConfigFile;
 import com.minegusta.mgraces.files.PlayerFile;
 import com.minegusta.mgraces.listener.RaceListener;
 import com.minegusta.mgraces.tasks.SaveTask;
@@ -24,6 +26,10 @@ public class Main extends JavaPlugin
 
         //Files
         PlayerFile.createPlayerFile();
+        DefaultConfigFile.loadConfig();
+
+        //Reload stuff
+        LoadToData.loadAllToMap();
 
         //Tasks
         list.add(SaveTask.saveTask);

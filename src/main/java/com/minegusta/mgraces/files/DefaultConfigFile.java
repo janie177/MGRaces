@@ -4,7 +4,7 @@ import com.minegusta.mgraces.Main;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
-public class DefaultConfig
+public class DefaultConfigFile
 {
     private static Plugin plugin = Main.PLUGIN;
 

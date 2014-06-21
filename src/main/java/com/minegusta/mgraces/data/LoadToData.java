@@ -1,6 +1,7 @@
 package com.minegusta.mgraces.data;
 
 import com.minegusta.mgraces.files.PlayerConf;
+import com.minegusta.mgraces.player.CreateMGPlayer;
 import com.minegusta.mgraces.player.MGPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -19,15 +20,9 @@ public class LoadToData
         for(UUID uuid : list)
         {
             if(Bukkit.getPlayer(uuid) != null && Bukkit.getPlayer(uuid).isOnline())continue;
-            MGPlayer p = new MGPlayer(uuid, Bukkit.getPlayer(uuid).getName(), conf.getRace(uuid.toString()));
+            MGPlayer p = new CreateMGPlayer(uuid).get();
             TempData.raceMap.put(uuid, p);
         }
 
-    }
-
-    public static void loadPlayerToMap(UUID uuid)
-    {
-        MGPlayer p = new MGPlayer(uuid, Bukkit.getPlayer(uuid).getName(), conf.getRace(uuid.toString()));
-        TempData.raceMap.put(uuid, p);
     }
 }

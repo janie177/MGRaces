@@ -2,6 +2,3 @@ main: com.minegusta.mgraces.Main
 name: MGRaces
 author: janie177
 version: ${project.version}
-
-commands:
-    race:

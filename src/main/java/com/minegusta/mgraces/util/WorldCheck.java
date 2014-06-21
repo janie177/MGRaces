@@ -7,7 +7,7 @@ public class WorldCheck
 {
     private static DefaultConf conf = new DefaultConf();
 
-    public boolean WorldCheck(World w)
+    public static boolean worldCheck(World w)
     {
         if(conf.getAllowedWorlds().contains(w.getName().toLowerCase()))
         {

@@ -1,6 +1,7 @@
 package com.minegusta.mgraces.misclisteners;
 
 import com.minegusta.mgraces.data.TempData;
+import com.minegusta.mgraces.health.RaceHealth;
 import com.minegusta.mgraces.player.CreateMGPlayer;
 import com.minegusta.mgraces.player.MGPlayer;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -11,6 +12,16 @@ public class LoadToMap
 {
     private UUID uuid;
     private MGPlayer mGP;
+
+    //When a player is cured.
+    public LoadToMap(UUID uuid)
+    {
+        this.uuid = uuid;
+        this.mGP = new CreateMGPlayer(uuid).get();
+        addToMap();
+    }
+
+    //JoinEvent
 
     public LoadToMap(PlayerJoinEvent e)
     {
@@ -24,5 +35,6 @@ public class LoadToMap
     private void addToMap()
     {
         TempData.raceMap.put(uuid, mGP);
+        RaceHealth.setHealth(uuid, mGP.getRace());
     }
 }

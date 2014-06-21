@@ -1,8 +1,8 @@
 package com.minegusta.mgraces.listener;
 
-import com.minegusta.mgraces.data.LoadToData;
 import com.minegusta.mgraces.misclisteners.LoadToMap;
 import com.minegusta.mgraces.misclisteners.RemoveFromMap;
+import com.minegusta.mgraces.misclisteners.SwitchWorld;
 import com.minegusta.mgraces.util.WorldCheck;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,7 +12,6 @@ import org.bukkit.event.player.*;
 public class RaceListener implements Listener
 {
     //World Check
-    private static WorldCheck wc = new WorldCheck();
 
     //Events
     @EventHandler
@@ -22,7 +21,7 @@ public class RaceListener implements Listener
         new LoadToMap(e);
 
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
 
     }
 
@@ -33,7 +32,7 @@ public class RaceListener implements Listener
         new RemoveFromMap(e);
 
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
 
     }
 
@@ -41,7 +40,7 @@ public class RaceListener implements Listener
     public void event(PlayerInteractEntityEvent e)
     {
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
 
     }
 
@@ -49,7 +48,7 @@ public class RaceListener implements Listener
     public void event(PlayerItemConsumeEvent e)
     {
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
 
     }
 
@@ -57,27 +56,33 @@ public class RaceListener implements Listener
     public void event(BlockBreakEvent e)
     {
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
     }
 
     @EventHandler
     public void event(PlayerInteractEvent e)
     {
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
     }
 
     @EventHandler
     public void event(PlayerMoveEvent e)
     {
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
     }
 
     @EventHandler
     public void event(PlayerToggleSneakEvent e)
     {
         //World Check
-        if(!wc.WorldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+    }
+
+    @EventHandler
+    public void event(PlayerChangedWorldEvent e)
+    {
+        new SwitchWorld(e);
     }
 }

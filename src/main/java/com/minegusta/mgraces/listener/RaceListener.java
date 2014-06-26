@@ -1,5 +1,9 @@
 package com.minegusta.mgraces.listener;
 
+import com.minegusta.mgraces.infection.demon.DemonInfect;
+import com.minegusta.mgraces.infection.elf.ElfInfect;
+import com.minegusta.mgraces.infection.elf.ElfKills;
+import com.minegusta.mgraces.infection.enderborn.EnderbornInfect;
 import com.minegusta.mgraces.misclisteners.LoadToMap;
 import com.minegusta.mgraces.misclisteners.RemoveFromMap;
 import com.minegusta.mgraces.misclisteners.SwitchWorld;
@@ -7,6 +11,7 @@ import com.minegusta.mgraces.util.WorldCheck;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.*;
 
 public class RaceListener implements Listener
@@ -41,6 +46,17 @@ public class RaceListener implements Listener
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+        new EnderbornInfect(e);
+
+    }
+
+    @EventHandler
+    public void event(EntityDeathEvent e)
+    {
+        //World Check
+        if(!WorldCheck.worldCheck(e.getEntity().getWorld()))return;
+
+        new ElfKills(e);
 
     }
 
@@ -49,6 +65,8 @@ public class RaceListener implements Listener
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+
+        new ElfInfect(e);
 
     }
 
@@ -71,6 +89,15 @@ public class RaceListener implements Listener
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+    }
+
+    @EventHandler
+    public void event(AsyncPlayerChatEvent e)
+    {
+        //World Check
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+
+        new DemonInfect(e);
     }
 
     @EventHandler

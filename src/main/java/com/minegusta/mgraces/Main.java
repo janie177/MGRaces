@@ -6,6 +6,7 @@ import com.minegusta.mgraces.data.LoadToData;
 import com.minegusta.mgraces.files.DefaultConfigFile;
 import com.minegusta.mgraces.files.PlayerFile;
 import com.minegusta.mgraces.listener.RaceListener;
+import com.minegusta.mgraces.recipes.Recipes;
 import com.minegusta.mgraces.tasks.SaveTask;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -33,6 +34,9 @@ public class Main extends JavaPlugin
 
         //Tasks
         list.add(SaveTask.saveTask);
+
+        //Recipes
+        Recipes.register();
 
         //Listener
         Bukkit.getServer().getPluginManager().registerEvents(new RaceListener(), this);

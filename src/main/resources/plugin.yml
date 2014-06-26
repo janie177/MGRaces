@@ -1,4 +1,9 @@
 main: com.minegusta.mgraces.Main
 name: MGRaces
-author: janie177
+authors: [janie177, xSoccerManX]
 version: ${project.version}
+commands:
+   race:
+      aliases: [races, class, classes, ra, rc]
+      usage: /Race
+      description: All information you need about races.

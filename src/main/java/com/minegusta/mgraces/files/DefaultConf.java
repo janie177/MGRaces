@@ -1,7 +1,11 @@
 package com.minegusta.mgraces.files;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -51,5 +55,49 @@ public class DefaultConf
     {
         if (!conf().isSet("elfhealth")) return 10;
         return conf().getInt("elfhealh");
+    }
+
+    public int altarBlock()
+    {
+        if(!conf().isSet("altarblock"))return 133;
+        return conf().getInt("altarblock");
+    }
+
+    public int altarSecondBlockAmount()
+    {
+        if(!conf().isSet("altarsecondblockamount"))return 10;
+        return conf().getInt("altarsecondblockamount");
+    }
+
+    public int altarSecondBlock()
+    {
+        if(!conf().isSet("altarsecondblock"))return 155;
+        return conf().getInt("altarsecondblock");
+    }
+
+    public int altarSecondBlockRadius()
+    {
+        if(!conf().isSet("altarsecondblockradius"))return 6;
+        return conf().getInt("altarsecondblockradius");
+    }
+
+    public List<ItemStack> cureItems()
+    {
+        List<ItemStack> list = Lists.newArrayList();
+        if(!conf().isSet("cureitems"))return list;
+
+        for(String s : conf().getStringList("cureitems"))
+        {
+            String[] split = s.split(",");
+            ItemStack i = new ItemStack(Material.getMaterial(split[0]), Integer.getInteger(split[1]));
+            list.add(i);
+        }
+        return list;
+    }
+
+    public String demonChant()
+    {
+        if(!conf().isSet("demonchant"))return "Wakka Wakka Wakka Wakka Hail PacMan!!";
+        return conf().getString("demonchant");
     }
 }

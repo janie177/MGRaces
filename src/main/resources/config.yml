@@ -11,3 +11,14 @@ elfhealth: 10
 demonhealth: 10
 humanhealth: 10
 enderbornhealth: 10
+
+altarblock: 133
+altarsecondblock: 155
+altarsecondblockamount: 9
+altarsecondblockradius: 6
+cureitems:
+  - '264,10'
+  - '89,10'
+  - '98,64'
+
+demonchant: 'lolfgt 1v1me i wrek u'

@@ -19,7 +19,7 @@ public class RaceCommand implements CommandExecutor
     private Player p;
     private static DefaultConf conf = new DefaultConf();
     private String prefix = ChatColor.translateAlternateColorCodes('&', conf.getPrefix());
-    private String race;
+    private String race = TempData.raceMap.get(p.getUniqueId()).getRace().getName();
 
 
     //Lists
@@ -54,7 +54,6 @@ public class RaceCommand implements CommandExecutor
         if(!(s instanceof Player))return true;
 
         this.p = (Player) s;
-        race = TempData.raceMap.get(p.getUniqueId()).getRace().getName();
 
         //Length of args.
         if(args.length == 0)

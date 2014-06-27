@@ -30,31 +30,31 @@ public class DefaultConf
     public int dwarfHealth() 
     {
         if (!conf().isSet("dwarfhealth")) return 20;
-        return conf().getInt("dwarfhealh");
+        return conf().getInt("dwarfhealth");
     }
 
     public int demonHealth()
     {
         if (!conf().isSet("demonhealth")) return 20;
-        return conf().getInt("demonhealh");
+        return conf().getInt("demonhealth");
     }
 
     public int enderBornHealth()
     {
         if (!conf().isSet("enderbornhealth")) return 20;
-        return conf().getInt("enderbornhealh");
+        return conf().getInt("enderbornhealth");
     }
 
     public int humanHealth()
     {
         if (!conf().isSet("humanhealth")) return 20;
-        return conf().getInt("humanhealh");
+        return conf().getInt("humanhealth");
     }
 
     public int elfHealth()
     {
         if (!conf().isSet("elfhealth")) return 20;
-        return conf().getInt("elfhealh");
+        return conf().getInt("elfhealth");
     }
 
     public int altarBlock()

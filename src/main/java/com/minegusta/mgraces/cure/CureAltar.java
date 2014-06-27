@@ -1,5 +1,6 @@
 package com.minegusta.mgraces.cure;
 
+import com.minegusta.mgraces.Main;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.race.Human;
@@ -45,6 +46,7 @@ public class CureAltar
         if(!isBlock() || !isRace() || !hasItems() || !hasBlocksNear())return;
 
         cure();
+        takeItems();
         MGMessage.message(p, "You are now human again!");
         playEffect();
     }
@@ -74,6 +76,14 @@ public class CureAltar
             }
         }
         return true;
+    }
+
+    private void takeItems()
+    {
+        for(ItemStack s : conf.cureItems())
+        {
+            p.getInventory().remove(s);
+        }
     }
 
     private boolean hasBlocksNear()
@@ -108,6 +118,17 @@ public class CureAltar
         world.spigot().playEffect(loc,Effect.HAPPY_VILLAGER,1,1,2,2,2,1,10,30);
         world.spigot().playEffect(loc,Effect.ENDER_SIGNAL,1,1,2,2,2,1,2,30);
 
+        for(int i = 0; i < 20 * 8; i++)
+        {
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    p.getWorld().spigot().playEffect(p.getLocation(), Effect.POTION_SWIRL, 1, 1, 1, 1, 1, 1, 20, 25);
+                }
+            }, i);
+        }
     }
 
     private void cure()

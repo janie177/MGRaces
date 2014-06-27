@@ -92,8 +92,8 @@ public class DefaultConf
 
         for(String s : items)
         {
-            String[] split = s.split(",");
-            ItemStack i = new ItemStack(Material.getMaterial(Integer.getInteger(split[0])), Integer.getInteger(split[1]));
+            String[] split = s.split(":");
+            ItemStack i = new ItemStack(Material.getMaterial(Integer.parseInt(split[0])), Integer.parseInt(split[1]));
             list.add(i);
         }
         return list;

@@ -34,10 +34,11 @@ public class RaceCommand implements CommandExecutor
     private static List<String> enderbornInfo = Lists.newArrayList("Enderborn are odd creatures.");
 
     private static List<String> elfInfect = Lists.newArrayList("To become an elf, follow these steps:", "- " + ChatColor.GRAY + "Get 100 mob kills with a bow.", "Craft an Elf Stew, with these ingredients:", ChatColor.DARK_PURPLE + "3 Yellow Flowers", ChatColor.DARK_PURPLE + "1 Mushroom Soup", ChatColor.DARK_PURPLE + "2 Potatoes", ChatColor.DARK_PURPLE + "2 Carrots", ChatColor.DARK_PURPLE + "1 Leaf", "Now eat the stew.");
-    private static List<String> dwarfInfect = Lists.newArrayList("Dwarves are great when using axes.");
-    private static List<String> humanInfect = Lists.newArrayList("Humans suck.");
+    private static List<String> dwarfInfect = Lists.newArrayList("To become a dwarf, follow these steps:", "- " + ChatColor.GRAY + "", "- " + ChatColor.GRAY + "Craft a shiny Gem.", "- " + ChatColor.GRAY + "Use the gem on a skeleton.", "- " + ChatColor.GRAY + "Use an axe to kill the angry spirit.");
     private static List<String> demonInfect = Lists.newArrayList("To become a demon, perform these steps: ", "- " + ChatColor.GRAY + "Make a 7 by 7 obsidian cross.", "- " + ChatColor.GRAY + "Put a sheep on it.", "Stand exactly in the center.", "Speak the follow lines:", "- " + ChatColor.DARK_PURPLE + conf.demonChant());
-    private static List<String> enderbornInfect = Lists.newArrayList("Enderborn are odd creatures.");
+    private static List<String> enderbornInfect = Lists.newArrayList("To become an Enderborn, follow these steps:", "- " + ChatColor.GRAY + "Craft a Crystal Eye.", "- " + ChatColor.GRAY + "Right click an enderman.", "- " + ChatColor.GRAY + "Wait for the transfusion to complete." );
+
+    private String[][] recipes = {{"Crystal Eye", "1 Eye of Ender", "4 Diamonds", "4 Emeralds"}, {"Elf Stew", "2 Carrots", "2 Potatoes", "1 Mushroom Soup", "1 Leaf", "3 Yellow Flowers"}, {"Shiny Gem", "4 Gold Bars", "4 Gold Blocks" , "1 Nether Star"}};
 
     private List<String> show = Lists.newArrayList("You are a: " + ChatColor.DARK_PURPLE + race, "You are a: " + ChatColor.DARK_PURPLE + race);
     private List<String> cure = Lists.newArrayList("If you want to become human again, follow these steps:", ChatColor.GRAY + "Build an altar out of:", " - " + ChatColor.DARK_PURPLE + "1 " + Material.getMaterial(conf.altarBlock()).name(), " - " + ChatColor.DARK_PURPLE + Integer.toString(conf.altarSecondBlockAmount()) + Material.getMaterial(conf.altarSecondBlock()).name(), "You need the following items in your inventory:");
@@ -83,6 +84,11 @@ public class RaceCommand implements CommandExecutor
                 return true;
             }
 
+            if(args[0].equalsIgnoreCase("recipes"))
+            {
+                sendRecipes(recipes);
+            }
+
             if(args[0].equalsIgnoreCase("reload") && p.isOp())
             {
                 DefaultConfigFile.reloadConfig();
@@ -106,7 +112,7 @@ public class RaceCommand implements CommandExecutor
 
             if(args[0].equalsIgnoreCase("Infect"))
             {
-                if(isRace(args[1]))
+                if(isRace(args[1]) && !(args[0].equalsIgnoreCase("human")))
                 {
                     sendList(raceToList.valueOf(args[1].toLowerCase()).getInfectInfo());
                     return true;
@@ -115,6 +121,22 @@ public class RaceCommand implements CommandExecutor
             sendList(help);
         }
         return true;
+    }
+
+    private void sendRecipes(String[][] s)
+    {
+        p.sendMessage(ChatColor.GOLD + " - - - - " + ChatColor.YELLOW + "Race Recipes Help" + ChatColor.GOLD + " - - - - ");
+        p.sendMessage(prefix + " " + ChatColor.DARK_GRAY + "Note: " + ChatColor.GRAY + "Ingredients to not work when you stack the items.");
+
+        for(int i = 0; i < s.length; i++)
+        {
+            p.sendMessage(prefix + " " + ChatColor.YELLOW + s[i][1] + ":");
+
+            for(int i2 = 1; i2 < s[i].length; i2++)
+            {
+                p.sendMessage(prefix + " " + ChatColor.YELLOW + " - " + ChatColor.DARK_PURPLE + s[i][i2]);
+            }
+        }
     }
 
     private void sendMessage(String s)
@@ -174,7 +196,7 @@ public class RaceCommand implements CommandExecutor
     {
         elf(elfInfo, elfInfect),
         dwarf(dwarfInfo, dwarfInfect),
-        human(humanInfo, humanInfect),
+        human(humanInfo),
         demon(demonInfo, demonInfect),
         enderborn(enderbornInfo, enderbornInfect);
 
@@ -184,6 +206,11 @@ public class RaceCommand implements CommandExecutor
         {
             this.info = info;
             this.infect = infect;
+        }
+
+        private raceToList(List<String> info)
+        {
+            this.info = info;
         }
 
         private List<String> get()

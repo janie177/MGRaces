@@ -1,6 +1,8 @@
 package com.minegusta.mgraces.listener;
 
 import com.minegusta.mgraces.infection.demon.DemonInfect;
+import com.minegusta.mgraces.infection.dwarf.DwarfInfect;
+import com.minegusta.mgraces.infection.dwarf.DwarfInfection;
 import com.minegusta.mgraces.infection.elf.ElfInfect;
 import com.minegusta.mgraces.infection.elf.ElfKills;
 import com.minegusta.mgraces.infection.enderborn.EnderbornInfect;
@@ -47,6 +49,7 @@ public class RaceListener implements Listener
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
         new EnderbornInfect(e);
+        new DwarfInfect(e);
 
     }
 
@@ -57,6 +60,7 @@ public class RaceListener implements Listener
         if(!WorldCheck.worldCheck(e.getEntity().getWorld()))return;
 
         new ElfKills(e);
+        new DwarfInfection(e);
 
     }
 

@@ -15,8 +15,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
-import javax.xml.stream.Location;
-
 public class EnderbornInfect
 {
     private Player p;
@@ -68,11 +66,16 @@ public class EnderbornInfect
                             MGMessage.message(p, "You are too far from your target to complete the soul merge.");
                             return;
                         }
-                        MGMessage.message(p, (10 - (k/20)) + " Seconds remaining for merge.");
+                        MGMessage.message(p, (10 - (k/20)) + " Seconds remaining till soul-transfusion is completed.");
                     }
                     enderbornEffect(entity, k);
                     enderbornEffect(p, k);
-                    if(k == 199)makeEnderBorn();
+                    if(k == 199)
+                    {
+                        p.getWorld().createExplosion(entity.getLocation(), 1, false);
+                        entity.remove();
+                        makeEnderBorn();
+                    }
                 }
 
             }, i);
@@ -81,12 +84,11 @@ public class EnderbornInfect
 
     private void makeEnderBorn()
     {
-        p.getWorld().spigot().playEffect(p.getLocation(), Effect.HAPPY_VILLAGER, 1, 1, 3, 2, 3, 1, 30, 25);
-        p.getWorld().playSound(p.getLocation(), Sound.ARROW_HIT, 1, 1);
+        p.getWorld().spigot().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1, 1, 3, 2, 3, 1,  15 , 25);
+        p.getWorld().playSound(p.getLocation(), Sound.ENDERDRAGON_DEATH, 1, 1);
 
         MGMessage.message(p, "You merged souls with the enderman and are now Enderborn!");
         MakeRace.makeRace(p.getUniqueId(), "enderborn");
-        TempData.elfKills.remove(p.getUniqueId());
         removeCrystal();
     }
 

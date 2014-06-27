@@ -17,6 +17,7 @@ public class Recipes
     {
         crystalRecipe();
         elfRecipe();
+        dwarfRecipe();
     }
 
     private static void elfRecipe()
@@ -50,7 +51,7 @@ public class Recipes
         List<String> lore = Lists.newArrayList();
         lore.add(ChatColor.GREEN + "Crystal Eye");
         meta.setLore(lore);
-        meta.setDisplayName(ChatColor.DARK_GREEN + "Crystalized Eye of Ender.");
+        meta.setDisplayName(ChatColor.DARK_GREEN + "Crystalized Eye of Ender");
         i.setItemMeta(meta);
 
         Recipe elfRecipe = new ShapelessRecipe(i)
@@ -59,6 +60,28 @@ public class Recipes
                 addIngredient(1, Material.EYE_OF_ENDER);
                 addIngredient(4, Material.DIAMOND);
                 addIngredient(4, Material.EMERALD);
+            }
+        };
+
+        Bukkit.getServer().addRecipe(elfRecipe);
+    }
+
+    private static void dwarfRecipe()
+    {
+        ItemStack i = new ItemStack(Material.MUSHROOM_SOUP, 1);
+        ItemMeta meta = i.getItemMeta();
+        List<String> lore = Lists.newArrayList();
+        lore.add(ChatColor.GREEN + "Shiny Gem");
+        meta.setLore(lore);
+        meta.setDisplayName(ChatColor.DARK_GREEN + "The Arkenstone");
+        i.setItemMeta(meta);
+
+        Recipe elfRecipe = new ShapelessRecipe(i)
+        {
+            {
+                addIngredient(1, Material.NETHER_STAR);
+                addIngredient(4, Material.GOLD_BLOCK);
+                addIngredient(4, Material.GOLD_INGOT);
             }
         };
 

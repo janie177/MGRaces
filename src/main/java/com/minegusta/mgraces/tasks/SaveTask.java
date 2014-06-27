@@ -14,7 +14,7 @@ public class SaveTask
         @Override
         public void run()
         {
-            YamlUtil.saveFile("players", "playerfile.yml", PlayerFile.playerFile);
+            YamlUtil.saveFile("/players/", "playerfile.yml", PlayerFile.playerFile);
         }
     }, 0 , 20 * 60);
 }

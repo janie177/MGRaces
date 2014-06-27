@@ -9,6 +9,6 @@ public class PlayerFile
 
     public static void createPlayerFile()
     {
-         playerFile = YamlUtil.getConfiguration("players", "playerfile.yml");
+         playerFile = YamlUtil.getConfiguration("/players/", "playerfile.yml");
     }
 }

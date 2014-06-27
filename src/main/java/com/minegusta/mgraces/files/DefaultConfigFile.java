@@ -10,7 +10,7 @@ public class DefaultConfigFile
 
     public static void loadConfig()
     {
-        plugin.getConfig();
+        plugin.saveDefaultConfig();
     }
 
     public static FileConfiguration getConfig()

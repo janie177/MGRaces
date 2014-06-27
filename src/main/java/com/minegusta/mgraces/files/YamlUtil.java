@@ -1,5 +1,6 @@
 package com.minegusta.mgraces.files;
 
+import com.minegusta.mgraces.Main;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -11,7 +12,7 @@ public class YamlUtil
 
     public static FileConfiguration getConfiguration(String path, String fileName)
     {
-        File dataFile = new File(path + fileName);
+        File dataFile = new File(Main.PLUGIN.getDataFolder() + path + fileName);
         if(!(dataFile.exists())) createFile(dataFile);
         return YamlConfiguration.loadConfiguration(dataFile);
     }
@@ -22,6 +23,7 @@ public class YamlUtil
         try
         {
             // Create the directories.
+            if(!Main.PLUGIN.getDataFolder().exists())Main.PLUGIN.getDataFolder().mkdirs();
             (dataFile.getParentFile()).mkdirs();
 
             // Create the new file.

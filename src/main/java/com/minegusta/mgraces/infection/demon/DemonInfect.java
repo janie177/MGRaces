@@ -93,11 +93,11 @@ public class DemonInfect {
 
     private void fire()
     {
-        for(int le = 0; le < 5; le++)
+        for(int le = -5; le < 5; le++)
         {
-            for(int le2 = 0; le2 < 5; le2++)
+            for(int le2 = -5; le2 < 5; le2++)
             {
-                if(le2 + le > 3)
+                if(le2 + le > 3 && le2 + le < 6)
                 {
                     if(p.getLocation().getBlock().getRelative(le, 0, le2).getType().equals(Material.AIR))
                     {

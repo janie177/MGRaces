@@ -91,7 +91,7 @@ public class RaceCommand implements CommandExecutor
 
             if(args[0].equalsIgnoreCase("Infect"))
             {
-                if(isRace(args[1]) && !(args[0].equalsIgnoreCase("human")))
+                if(isRace(args[1]) && !(args[1].equalsIgnoreCase("human")))
                 {
                     sendList(raceToList.valueOf(args[1].toLowerCase()).getInfectInfo());
                     return true;
@@ -105,7 +105,7 @@ public class RaceCommand implements CommandExecutor
     private void sendRecipes(String[][] s)
     {
         p.sendMessage(ChatColor.GOLD + " - - - - " + ChatColor.YELLOW + "Race Recipes Help" + ChatColor.GOLD + " - - - - ");
-        p.sendMessage(prefix + " " + ChatColor.DARK_GRAY + "Note: " + ChatColor.GRAY + "Ingredients to not work when you stack the items.");
+        p.sendMessage(prefix + " " + ChatColor.DARK_GRAY + "Note: " + ChatColor.GRAY + "Ingredients do not work when you stack the items.");
 
         for(int i = 0; i < s.length; i++)
         {

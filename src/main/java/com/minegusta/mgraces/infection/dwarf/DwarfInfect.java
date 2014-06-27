@@ -57,9 +57,12 @@ public class DwarfInfect
 
     private void removeGem()
     {
-        ItemStack newStack = p.getItemInHand();
-        newStack.setAmount(1);
-        p.getInventory().removeItem(newStack);
+        if(p.getItemInHand().getAmount() == 1)
+        {
+            p.setItemInHand(new ItemStack(Material.AIR));
+            return;
+        }
+        p.getItemInHand().setAmount(p.getItemInHand().getAmount() - 1);
         p.updateInventory();
     }
 

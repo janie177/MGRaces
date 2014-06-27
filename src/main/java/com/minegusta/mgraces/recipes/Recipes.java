@@ -46,12 +46,12 @@ public class Recipes
 
     private static void crystalRecipe()
     {
-        ItemStack i = new ItemStack(Material.MUSHROOM_SOUP, 1);
+        ItemStack i = new ItemStack(Material.EYE_OF_ENDER, 1);
         ItemMeta meta = i.getItemMeta();
         List<String> lore = Lists.newArrayList();
-        lore.add(ChatColor.GREEN + "Crystal Eye");
+        lore.add(ChatColor.LIGHT_PURPLE + "Crystal Eye");
         meta.setLore(lore);
-        meta.setDisplayName(ChatColor.DARK_GREEN + "Crystalized Eye of Ender");
+        meta.setDisplayName(ChatColor.DARK_PURPLE + "Crystalized Eye of Ender");
         i.setItemMeta(meta);
 
         Recipe elfRecipe = new ShapelessRecipe(i)
@@ -68,12 +68,12 @@ public class Recipes
 
     private static void dwarfRecipe()
     {
-        ItemStack i = new ItemStack(Material.MUSHROOM_SOUP, 1);
+        ItemStack i = new ItemStack(Material.NETHER_STAR, 1);
         ItemMeta meta = i.getItemMeta();
         List<String> lore = Lists.newArrayList();
-        lore.add(ChatColor.GREEN + "Shiny Gem");
+        lore.add(ChatColor.YELLOW + "Shiny Gem");
         meta.setLore(lore);
-        meta.setDisplayName(ChatColor.DARK_GREEN + "The Arkenstone");
+        meta.setDisplayName(ChatColor.WHITE + "The Arkenstone");
         i.setItemMeta(meta);
 
         Recipe elfRecipe = new ShapelessRecipe(i)

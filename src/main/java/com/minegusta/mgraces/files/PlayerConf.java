@@ -19,17 +19,6 @@ public class PlayerConf
 
     //All methods for config values.
 
-    public List<UUID> getAllUUID()
-    {
-        List<UUID> uuidList = Lists.newArrayList();
-        for(String s : conf().getKeys(false))
-        {
-           uuidList.add(UUID.fromString(s));
-        }
-
-        return uuidList;
-    }
-
     public Race getRace(String uuid)
     {
         if(!conf().isSet(uuid))return new Human();

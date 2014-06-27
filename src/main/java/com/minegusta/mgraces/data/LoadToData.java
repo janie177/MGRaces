@@ -11,17 +11,13 @@ import java.util.UUID;
 
 public class LoadToData
 {
-    private static PlayerConf conf = new PlayerConf();
-
     public static void loadAllToMap()
     {
-
-        List<UUID> list = conf.getAllUUID();
-        for(UUID uuid : list)
+        for(Player p : Bukkit.getOnlinePlayers())
         {
-            if(Bukkit.getPlayer(uuid) != null && Bukkit.getPlayer(uuid).isOnline())continue;
-            MGPlayer p = new CreateMGPlayer(uuid).get();
-            TempData.raceMap.put(uuid, p);
+            UUID uuid = p.getUniqueId();
+            MGPlayer player = new CreateMGPlayer(uuid).get();
+            TempData.raceMap.put(uuid, player);
         }
 
     }

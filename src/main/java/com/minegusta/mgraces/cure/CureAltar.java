@@ -3,6 +3,7 @@ package com.minegusta.mgraces.cure;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.race.Human;
+import com.minegusta.mgraces.util.MGMessage;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -41,10 +42,10 @@ public class CureAltar
         this.mat = e.getClickedBlock().getType();
         this.b = e.getClickedBlock();
 
-        if(!isBlock() || !isRace() || hasItems() || !hasBlocksNear())return;
+        if(!isBlock() || !isRace() || !hasItems() || !hasBlocksNear())return;
 
         cure();
-        sendCureMessage();
+        MGMessage.message(p, "You are now human again!");
         playEffect();
     }
 
@@ -112,10 +113,5 @@ public class CureAltar
     private void cure()
     {
         CureRace.makeHuman(uuid);
-    }
-
-    private void sendCureMessage()
-    {
-        p.sendMessage(conf.getPrefix() + ChatColor.YELLOW + " You are now human again!");
     }
 }

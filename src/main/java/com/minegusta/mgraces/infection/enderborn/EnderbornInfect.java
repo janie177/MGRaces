@@ -72,7 +72,8 @@ public class EnderbornInfect
                     enderbornEffect(p, k);
                     if(k == 199)
                     {
-                        p.getWorld().createExplosion(entity.getLocation(), 1, false);
+                        p.getWorld().createExplosion(entity.getLocation(), 0, false);
+                        p.getWorld().strikeLightning(entity.getLocation());
                         entity.remove();
                         makeEnderBorn();
                     }
@@ -105,6 +106,6 @@ public class EnderbornInfect
 
     private void enderbornEffect(Entity e, int i)
     {
-        e.getWorld().spigot().playEffect(e.getLocation(), Effect.PORTAL, 1, 1, i/60, i/60, i/60, 1, i / 4, 25);
+        e.getWorld().spigot().playEffect(e.getLocation(), Effect.PORTAL, 1, 1, i/80, i/80, i/80, 1, i / 2, 25);
     }
 }

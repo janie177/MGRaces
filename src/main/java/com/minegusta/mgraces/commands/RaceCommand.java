@@ -109,7 +109,7 @@ public class RaceCommand implements CommandExecutor
 
         for(int i = 0; i < s.length; i++)
         {
-            p.sendMessage(prefix + " " + ChatColor.YELLOW + s[i][1] + ":");
+            p.sendMessage(prefix + " " + ChatColor.YELLOW + s[i][0] + ":");
 
             for(int i2 = 1; i2 < s[i].length; i2++)
             {

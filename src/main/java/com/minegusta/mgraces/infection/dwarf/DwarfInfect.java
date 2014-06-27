@@ -70,7 +70,7 @@ public class DwarfInfect
         Skeleton skeleton = (Skeleton) e;
         skeleton.setSkeletonType(Skeleton.SkeletonType.WITHER);
         skeleton.setCustomNameVisible(true);
-        skeleton.setCustomName("Returned Elf Fiend");
+        skeleton.setCustomName(ChatColor.RED + "Returned Elf Fiend");
         skeleton.setTarget(p);
         skeleton.setHealth(skeleton.getMaxHealth());
 

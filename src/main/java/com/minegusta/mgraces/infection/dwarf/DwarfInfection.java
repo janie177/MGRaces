@@ -4,6 +4,7 @@ import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.infection.MakeRace;
 import com.minegusta.mgraces.race.Human;
 import com.minegusta.mgraces.util.MGMessage;
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -53,7 +54,10 @@ public class DwarfInfection
 
         for(ItemStack i : skeleton.getEquipment().getArmorContents())
         {
-            if(i.hasItemMeta() && i.getItemMeta().hasLore() && i.getItemMeta().getLore().toString().contains("DwarfBane"))return true;
+            if(!i.getType().equals(Material.AIR) && i.hasItemMeta() && i.getItemMeta().hasDisplayName() && i.getItemMeta().getDisplayName().contains("DwarfBane"))
+            {
+                return true;
+            }
         }
         return false;
     }

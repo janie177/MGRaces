@@ -167,7 +167,7 @@ public class RaceCommand implements CommandExecutor
         List<ItemStack> items = conf.cureItems();
         for(ItemStack i : items)
         {
-            p.sendMessage(prefix + ChatColor.YELLOW + " - " + ChatColor.DARK_PURPLE + Integer.toString(i.getAmount()) + i.getType().name());
+            p.sendMessage(prefix + ChatColor.YELLOW + " - " + ChatColor.DARK_PURPLE + Integer.toString(i.getAmount()) + " " + i.getType().name());
         }
     }
 

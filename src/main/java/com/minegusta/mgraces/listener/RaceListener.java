@@ -1,5 +1,6 @@
 package com.minegusta.mgraces.listener;
 
+import com.minegusta.mgraces.cure.CureAltar;
 import com.minegusta.mgraces.health.SetHealth;
 import com.minegusta.mgraces.infection.demon.DemonInfect;
 import com.minegusta.mgraces.infection.dwarf.DwarfInfect;
@@ -88,6 +89,8 @@ public class RaceListener implements Listener
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+
+        new CureAltar(e);
     }
 
     @EventHandler

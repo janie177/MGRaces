@@ -96,7 +96,7 @@ public class DemonInfect {
 
     private void effect()
     {
-        for(int i = 0; i < 20 * 10; i++)
+        for(int i = 0; i < 20 * 20; i++)
         {
             final int k = i;
             Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable()
@@ -104,7 +104,7 @@ public class DemonInfect {
                 @Override
                 public void run()
                 {
-                        p.getWorld().spigot().playEffect(center.getLocation(), Effect.PARTICLE_SMOKE, 1, 1, k/40, k/100, k/40, 1, k, 30);
+                        p.getWorld().spigot().playEffect(center.getLocation(), Effect.POTION_SWIRL, 1, 1, k/40, k/250, k/40, 1, k/2, 30);
                         if(k % 20 == 0)
                         {
                             center.getWorld().playSound(center.getLocation(), Sound.GHAST_MOAN, 5, 5);

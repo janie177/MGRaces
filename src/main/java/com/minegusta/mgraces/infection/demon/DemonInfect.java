@@ -1,11 +1,13 @@
 package com.minegusta.mgraces.infection.demon;
 
+import com.minegusta.mgraces.Main;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.files.PlayerConf;
 import com.minegusta.mgraces.infection.MakeRace;
 import com.minegusta.mgraces.race.Human;
 import com.minegusta.mgraces.util.MGMessage;
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -99,7 +101,14 @@ public class DemonInfect {
                 {
                     if(p.getLocation().getBlock().getRelative(le, 0, le2).getType().equals(Material.AIR))
                     {
-                        p.getLocation().getBlock().getRelative(le, 0, le2).setType(Material.FIRE);
+                        final int loc1 = le2;
+                        final int loc2 = le;
+                        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
+                            @Override
+                            public void run() {
+                                p.getLocation().getBlock().getRelative(loc1, 0, loc2).setType(Material.FIRE);
+                            }
+                        }, 0);
                     }
                 }
             }

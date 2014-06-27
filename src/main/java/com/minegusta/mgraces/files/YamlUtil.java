@@ -37,7 +37,7 @@ public class YamlUtil
 
     public static boolean saveFile(String path, String fileName, FileConfiguration conf) {
         try {
-            conf.save(path + fileName);
+            conf.save(Main.PLUGIN.getDataFolder() + path + fileName);
             return true;
         } catch (Exception ignored) {
         }

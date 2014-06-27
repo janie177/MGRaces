@@ -28,6 +28,8 @@ public class EnderbornInfect
 
         if(hasCrystal() && isEnderMan() && isHuman())
         {
+            e.setCancelled(true);
+            removeCrystal();
             startMerge();
         }
     }
@@ -90,17 +92,16 @@ public class EnderbornInfect
 
         MGMessage.message(p, "You merged souls with the enderman and are now Enderborn!");
         MakeRace.makeRace(p.getUniqueId(), "enderborn");
-        removeCrystal();
     }
 
     private void removeCrystal()
     {
-        ItemStack s = p.getItemInHand();
-        if(s.getAmount() == 1)p.setItemInHand(new ItemStack(Material.AIR));
-        else
+        if(p.getItemInHand().getAmount() == 1)
         {
-            p.setItemInHand(new ItemStack(s.getType(), s.getAmount() - 1));
+            p.setItemInHand(new ItemStack(Material.AIR));
+            return;
         }
+        p.getItemInHand().setAmount(p.getItemInHand().getAmount() - 1);
         p.updateInventory();
     }
 

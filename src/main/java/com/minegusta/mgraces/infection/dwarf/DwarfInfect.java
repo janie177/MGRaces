@@ -80,12 +80,14 @@ public class DwarfInfect
                 addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
                 ItemMeta meta = getItemMeta();
                 meta.setDisplayName("DwarfBane");
+                setItemMeta(meta);
             }
         }, new ItemStack(Material.DIAMOND_CHESTPLATE, 1)
         {
             {
                 ItemMeta meta = getItemMeta();
                 meta.setDisplayName("DwarfBane");
+                setItemMeta(meta);
                 addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
                 addEnchantment(Enchantment.THORNS, 1);
             }
@@ -94,6 +96,7 @@ public class DwarfInfect
             {
                 ItemMeta meta = getItemMeta();
                 meta.setDisplayName("DwarfBane");
+                setItemMeta(meta);
                 addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
             }
         }, new ItemStack(Material.DIAMOND_BOOTS, 1)
@@ -101,6 +104,7 @@ public class DwarfInfect
             {
                 ItemMeta meta = getItemMeta();
                 meta.setDisplayName("DwarfBane");
+                setItemMeta(meta);
                 addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
                 addEnchantment(Enchantment.THORNS, 1);
             }
@@ -111,6 +115,7 @@ public class DwarfInfect
             {
                 ItemMeta meta = getItemMeta();
                 meta.setDisplayName("DwarfBane");
+                setItemMeta(meta);
                 addEnchantment(Enchantment.DAMAGE_ALL, 2);
                 addEnchantment(Enchantment.KNOCKBACK, 1);
             }

@@ -18,27 +18,42 @@ public class RaceHealth
 
         if(r instanceof Dwarf)
         {
-            p.setMaxHealth(conf.dwarfHealth());
+            int x = conf.dwarfHealth();
+            p.setHealthScale(x);
+            p.setMaxHealth(x);
+            return;
         }
 
         if(r instanceof Elf)
         {
-            p.setMaxHealth(conf.elfHealth());
+            int x = conf.elfHealth();
+            p.setHealthScale(x);
+            p.setMaxHealth(x);
+            return;
         }
 
         if(r instanceof EnderBorn)
         {
-            p.setMaxHealth(conf.enderBornHealth());
+            int x = conf.enderBornHealth();
+            p.setHealthScale(x);
+            p.setMaxHealth(x);
+            return;
         }
 
         if(r instanceof Demon)
         {
-            p.setMaxHealth(conf.demonHealth());
+            int x = conf.demonHealth();
+            p.setHealthScale(x);
+            p.setMaxHealth(x);
+            return;
         }
 
         if(r instanceof Human)
         {
-            p.setMaxHealth(conf.humanHealth());
+            int x = conf.humanHealth();
+            p.setHealthScale(x);
+            p.setMaxHealth(x);
+            return;
         }
     }
 }

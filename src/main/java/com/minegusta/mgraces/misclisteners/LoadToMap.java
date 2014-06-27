@@ -35,6 +35,5 @@ public class LoadToMap
     private void addToMap()
     {
         TempData.raceMap.put(uuid, mGP);
-        RaceHealth.setHealth(uuid, mGP.getRace());
     }
 }

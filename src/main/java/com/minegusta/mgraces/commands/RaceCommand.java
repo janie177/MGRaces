@@ -24,7 +24,7 @@ public class RaceCommand implements CommandExecutor
 
     //Lists
 
-    private List<String> help = Lists.newArrayList("Help " + ChatColor.GRAY + "- Show this help menu.", "List " + ChatColor.GRAY + "- Display a list of races.", "Info <Race>" + ChatColor.GRAY + "- Info on the given race.", "Show" + ChatColor.GRAY + "- Show info about your race.", "cure" + ChatColor.GRAY + "- Display cure info.", "Infect <Race>" + ChatColor.GRAY + "- Show how to become a race.");
+    private List<String> help = Lists.newArrayList("/Race Help " + ChatColor.GRAY + "- Show this help menu.", "/Race List " + ChatColor.GRAY + "- Display a list of races.", "/Race Info <Race> " + ChatColor.GRAY + "- Info on the given race.", "/Race Show " + ChatColor.GRAY + "- Show info about your race.", "/Race Cure " + ChatColor.GRAY + "- Display cure info.", "/Race Infect <Race> " + ChatColor.GRAY + "- Show how to become a race.", "/Race Recipes " + ChatColor.GRAY + "- Show all recipes related to races.");
     private List<String> races = Lists.newArrayList("Elf", "Dwarf", "Enderborn", "Demon", "Human");
 
     private static List<String> elfInfo = Lists.newArrayList("Elves are great using bows.");
@@ -40,7 +40,7 @@ public class RaceCommand implements CommandExecutor
 
     private String[][] recipes = {{"Crystal Eye", "1 Eye of Ender", "4 Diamonds", "4 Emeralds"}, {"Elf Stew", "2 Carrots", "2 Potatoes", "1 Mushroom Soup", "1 Leaf", "3 Yellow Flowers"}, {"Shiny Gem", "4 Gold Bars", "4 Gold Blocks" , "1 Nether Star"}};
 
-    private List<String> show = Lists.newArrayList("You are a: " + ChatColor.DARK_PURPLE + race, "You are a: " + ChatColor.DARK_PURPLE + race);
+    private List<String> show = Lists.newArrayList("You are a(n): " + ChatColor.DARK_PURPLE + race);
     private List<String> cure = Lists.newArrayList("If you want to become human again, follow these steps:", ChatColor.GRAY + "Build an altar out of:", " - " + ChatColor.DARK_PURPLE + "1 " + Material.getMaterial(conf.altarBlock()).name(), " - " + ChatColor.DARK_PURPLE + Integer.toString(conf.altarSecondBlockAmount()) + Material.getMaterial(conf.altarSecondBlock()).name(), "You need the following items in your inventory:");
 
 
@@ -87,6 +87,7 @@ public class RaceCommand implements CommandExecutor
             if(args[0].equalsIgnoreCase("recipes"))
             {
                 sendRecipes(recipes);
+                return true;
             }
 
             if(args[0].equalsIgnoreCase("reload") && p.isOp())

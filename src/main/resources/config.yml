@@ -6,11 +6,11 @@ enabledworlds:
 
 commandprefix: '&6[&eMG&6]&f'
 
-dwarfhealth: 10
-elfhealth: 10
-demonhealth: 10
-humanhealth: 10
-enderbornhealth: 10
+dwarfhealth: 24
+elfhealth: 20
+demonhealth: 22
+humanhealth: 26
+enderbornhealth: 22
 
 altarblock: 133
 altarsecondblock: 155

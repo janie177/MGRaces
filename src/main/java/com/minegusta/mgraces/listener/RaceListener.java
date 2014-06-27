@@ -1,5 +1,6 @@
 package com.minegusta.mgraces.listener;
 
+import com.minegusta.mgraces.health.SetHealth;
 import com.minegusta.mgraces.infection.demon.DemonInfect;
 import com.minegusta.mgraces.infection.dwarf.DwarfInfect;
 import com.minegusta.mgraces.infection.dwarf.DwarfInfection;
@@ -29,6 +30,7 @@ public class RaceListener implements Listener
 
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+        new SetHealth(e);
 
     }
 

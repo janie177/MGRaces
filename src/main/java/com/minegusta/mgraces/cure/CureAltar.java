@@ -82,7 +82,7 @@ public class CureAltar
     {
         for(ItemStack s : conf.cureItems())
         {
-            p.getInventory().remove(s);
+            p.getInventory().removeItem(s);
         }
         p.updateInventory();
     }

@@ -68,6 +68,7 @@ public class DemonInfect {
         for (Entity e : p.getNearbyEntities(3, 0, 3)) {
             if (e instanceof Sheep) {
                 sheep = (LivingEntity) e;
+                if(((Sheep)sheep).isAdult())return false;
                 return true;
             }
         }
@@ -104,7 +105,7 @@ public class DemonInfect {
                 @Override
                 public void run()
                 {
-                        p.getWorld().spigot().playEffect(center.getLocation(), Effect.POTION_SWIRL, 1, 1, k/40, k/250, k/40, 1, k/2, 30);
+                        p.getWorld().spigot().playEffect(center.getLocation(), Effect.LAVADRIP, 1, 1, k/40, k/250, k/40, 1, k/2, 30);
                         if(k % 20 == 0)
                         {
                             center.getWorld().playSound(center.getLocation(), Sound.GHAST_MOAN, 5, 5);

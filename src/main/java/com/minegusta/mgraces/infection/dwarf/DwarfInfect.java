@@ -57,11 +57,9 @@ public class DwarfInfect
 
     private void removeGem()
     {
-        if(i.getAmount() == 1)p.setItemInHand(new ItemStack(Material.AIR));
-        else
-        {
-            p.setItemInHand(new ItemStack(i.getType(), i.getAmount() - 1));
-        }
+        ItemStack newStack = p.getItemInHand();
+        newStack.setAmount(1);
+        p.getInventory().removeItem(newStack);
         p.updateInventory();
     }
 
@@ -70,7 +68,7 @@ public class DwarfInfect
         Skeleton skeleton = (Skeleton) e;
         skeleton.setSkeletonType(Skeleton.SkeletonType.WITHER);
         skeleton.setCustomNameVisible(true);
-        skeleton.setCustomName(ChatColor.RED + "Returned Elf Fiend");
+        skeleton.setCustomName(ChatColor.RED + "Angry Dwarf Spirit");
         skeleton.setTarget(p);
         skeleton.setHealth(skeleton.getMaxHealth());
 

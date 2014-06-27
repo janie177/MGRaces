@@ -105,7 +105,7 @@ public class DemonInfect {
                 @Override
                 public void run()
                 {
-                        p.getWorld().spigot().playEffect(center.getLocation(), Effect.LAVADRIP, 1, 1, k/40, k/250, k/40, 1, k/2, 30);
+                        p.getWorld().spigot().playEffect(center.getLocation(), Effect.LAVADRIP, 1, 1, k/80, 1 + k/250, k/80, 1, 30 + k/2, 30);
                         if(k % 20 == 0)
                         {
                             center.getWorld().playSound(center.getLocation(), Sound.GHAST_MOAN, 5, 5);

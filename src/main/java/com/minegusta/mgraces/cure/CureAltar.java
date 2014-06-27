@@ -84,6 +84,7 @@ public class CureAltar
         {
             p.getInventory().remove(s);
         }
+        p.updateInventory();
     }
 
     private boolean hasBlocksNear()

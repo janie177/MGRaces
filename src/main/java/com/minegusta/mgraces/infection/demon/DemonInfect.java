@@ -10,6 +10,7 @@ import com.minegusta.mgraces.util.MGMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
@@ -24,6 +25,7 @@ public class DemonInfect {
     private String chant = conf.demonChant();
     private String message;
     private LivingEntity sheep;
+    private Block center;
 
     public DemonInfect(AsyncPlayerChatEvent e) {
         this.p = e.getPlayer();
@@ -37,6 +39,7 @@ public class DemonInfect {
 
     private boolean isCircle() {
         Block center = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
+        this.center = center;
         if (isObsidian(center)) {
             Block start1 = center.getRelative(BlockFace.EAST, 3);
             Block start2 = center.getRelative(BlockFace.SOUTH, 3);
@@ -87,8 +90,28 @@ public class DemonInfect {
         fire();
 
         MakeRace.makeRace(p.getUniqueId(), "demon");
-
+        effect();
         MGMessage.message(p, "You feel the demon blood rush through your veins!");
+    }
+
+    private void effect()
+    {
+        for(int i = 0; i < 20 * 10; i++)
+        {
+            final int k = i;
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                        p.getWorld().spigot().playEffect(center.getLocation(), Effect.PARTICLE_SMOKE, 1, 1, k/40, k/100, k/40, 1, k, 30);
+                        if(k % 20 == 0)
+                        {
+                            center.getWorld().playSound(center.getLocation(), Sound.GHAST_MOAN, 5, 5);
+                        }
+                }
+            }, i);
+        }
     }
 
     private void fire()
@@ -97,7 +120,7 @@ public class DemonInfect {
         {
             for(int le2 = -5; le2 < 5; le2++)
             {
-                if(le2 + le > 3 && le2 + le < 6)
+                if(Math.abs(le2) + Math.abs(le) > 3 && Math.abs(le2) + Math.abs(le) < 5)
                 {
                     if(p.getLocation().getBlock().getRelative(le, 0, le2).getType().equals(Material.AIR))
                     {

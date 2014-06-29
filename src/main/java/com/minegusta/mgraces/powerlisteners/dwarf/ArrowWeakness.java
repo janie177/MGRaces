@@ -3,6 +3,7 @@ package com.minegusta.mgraces.powerlisteners.dwarf;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.race.Dwarf;
+import com.minegusta.mgraces.worldguard.WGManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -20,11 +21,17 @@ public class ArrowWeakness
         this.damaged = e.getEntity();
         this.cause = e.getCause();
 
-        if(!e.isCancelled() && isArrow() && isPlayer() && isDwarf())
+        if(!e.isCancelled() && isArrow() && isPlayer() && canPVP() && isDwarf())
         {
             apply();
         }
     }
+
+    private boolean canPVP()
+    {
+        return WGManager.canPVP(damaged);
+    }
+
 
     private boolean isArrow()
     {

@@ -4,6 +4,7 @@ import com.minegusta.mgraces.Main;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.race.Demon;
 import com.minegusta.mgraces.util.CoolDown;
+import com.minegusta.mgraces.worldguard.WGManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -20,10 +21,15 @@ public class MinionBoost
         this.damaged = e.getEntity();
         this.damager = e.getDamager();
 
-        if(!e.isCancelled() && isHuman() && enemyIsLiving() && isLowHealth() && isDemon())
+        if(!e.isCancelled() && isHuman() && enemyIsLiving() && isLowHealth() && canPVP() && isDemon())
         {
             apply();
         }
+    }
+
+    private boolean canPVP()
+    {
+        return WGManager.canPVP(damaged);
     }
 
     private boolean isHuman()
@@ -38,7 +44,8 @@ public class MinionBoost
 
     private boolean isLowHealth()
     {
-        return ((LivingEntity)damaged).getHealth() < 4;
+        LivingEntity le = (LivingEntity) damaged;
+        return le.getHealth() < 4;
     }
 
     private boolean enemyIsLiving()

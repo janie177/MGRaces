@@ -7,6 +7,7 @@ import com.minegusta.mgraces.race.EnderBorn;
 import com.minegusta.mgraces.util.MGMessage;
 import com.minegusta.mgraces.util.PlayEffect;
 import com.minegusta.mgraces.util.RandomInt;
+import com.minegusta.mgraces.worldguard.WGManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.entity.Entity;
@@ -25,11 +26,17 @@ public class BleedBoost
         this.damaged = e.getEntity();
         this.damager = e.getDamager();
 
-        if(isHuman() && !e.isCancelled() && victimIsLiving() && isEnderborn())
+        if(isHuman() && !e.isCancelled() && victimIsLiving() && canPVP() && isEnderborn())
         {
             apply();
         }
     }
+
+    private boolean canPVP()
+    {
+        return WGManager.canPVP(damaged);
+    }
+
 
     private boolean isHuman()
     {

@@ -3,6 +3,7 @@ package com.minegusta.mgraces.powerlisteners.dwarf;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.race.Dwarf;
+import com.minegusta.mgraces.worldguard.WGManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -22,10 +23,15 @@ public class AxeBoost
         this.damager = e.getDamager();
         this.e = e;
 
-        if(!e.isCancelled() && damagerIsPlayer() && victimIsLiving() && damagerIsDwarf() && hasAxe())
+        if(!e.isCancelled() && damagerIsPlayer() && victimIsLiving() && canPVP() && damagerIsDwarf() && hasAxe())
         {
             apply();
         }
+    }
+
+    private boolean canPVP()
+    {
+        return WGManager.canPVP(damaged);
     }
 
     private boolean damagerIsPlayer()

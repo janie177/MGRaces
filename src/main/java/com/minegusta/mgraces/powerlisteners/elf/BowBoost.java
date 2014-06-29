@@ -3,6 +3,7 @@ package com.minegusta.mgraces.powerlisteners.elf;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.race.Elf;
+import com.minegusta.mgraces.worldguard.WGManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -22,10 +23,15 @@ public class BowBoost
         this.damaged = e.getEntity();
         this.damager = e.getDamager();
 
-        if(!e.isCancelled() && isPlayer() && victimIsLiving() && isElf() && isArrow())
+        if(!e.isCancelled() && isPlayer() && victimIsLiving() && canPVP() && isElf() && isArrow())
         {
             apply();
         }
+    }
+
+    private boolean canPVP()
+    {
+        return WGManager.canPVP(damaged);
     }
 
     private boolean isPlayer()

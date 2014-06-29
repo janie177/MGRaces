@@ -8,8 +8,10 @@ import com.minegusta.mgraces.files.PlayerFile;
 import com.minegusta.mgraces.listener.RaceListener;
 import com.minegusta.mgraces.recipes.Recipes;
 import com.minegusta.mgraces.tasks.BoostTask;
+import com.minegusta.mgraces.tasks.ParticleTask;
 import com.minegusta.mgraces.tasks.SaveTask;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Particle;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -38,6 +40,7 @@ public class Main extends JavaPlugin
         //Tasks
         list.add(SaveTask.saveTask);
         list.add(BoostTask.boostTask);
+        list.add(ParticleTask.particleTask());
         list.add(BoostTask.secondBoostTask);
 
         // Depends

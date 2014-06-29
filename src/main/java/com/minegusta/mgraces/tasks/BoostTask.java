@@ -40,7 +40,7 @@ public class BoostTask
                 }
                 if(mGP.getRace() instanceof EnderBorn)
                 {
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.NIGHT_VISION, 0, 10);
+                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.NIGHT_VISION, 0, 15);
                     new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.JUMP, 0, 4);
                     continue;
                 }

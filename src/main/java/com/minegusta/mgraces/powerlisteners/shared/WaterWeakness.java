@@ -19,7 +19,7 @@ public class WaterWeakness
         this.uuid = mgp.getUUID();
         p = Bukkit.getPlayer(uuid);
 
-        if(isInWater() || isRain())
+        if(isInWater() || (isRain() && isNoShelter()))
         {
             apply();
         }
@@ -33,6 +33,11 @@ public class WaterWeakness
     private boolean isInWater()
     {
         return p.getLocation().getBlock().getType().equals(Material.WATER) || p.getLocation().getBlock().getType().equals(Material.STATIONARY_WATER);
+    }
+
+    private boolean isNoShelter()
+    {
+        return p.getWorld().getHighestBlockYAt(p.getLocation().getBlockX(), p.getLocation().getBlockZ()) > p.getLocation().getBlockY() + 1;
     }
 
     //Apply boosts

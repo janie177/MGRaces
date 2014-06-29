@@ -25,15 +25,12 @@ public class PermanentPotionEffect
         apply();
     }
 
-    private void apply()
-    {
+    private void apply() {
         Player p = Bukkit.getPlayer(uuid);
-        if(!WorldCheck.worldCheck(p.getWorld()))return;
+        if (!WorldCheck.worldCheck(p.getWorld())) return;
 
-        for(PotionEffect pe : p.getActivePotionEffects())
-        {
-            if(pe.getType().equals(type))
-            {
+        for (PotionEffect pe : p.getActivePotionEffects()) {
+            if (pe.getType().equals(type)) {
                 p.removePotionEffect(type);
             }
         }

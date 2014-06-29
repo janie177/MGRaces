@@ -6,7 +6,7 @@
 
     <groupId>com.minegusta</groupId>
     <artifactId>MgRaces</artifactId>
-    <version>0.1.2.6</version>
+    <version>0.1.2.7</version>
     <packaging>jar</packaging>
 
     <name>MgRaces</name>
@@ -24,15 +24,16 @@
 
     <properties> <!-- It is important to keep up to date manually. -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot.version>1.7.9-R0.1-SNAPSHOT</spigot.version>
+        <spigot.version>1.7.9-R0.2-SNAPSHOT</spigot.version>
+        <minecraft_version>1_7_R3</minecraft_version>
         <worldguard.version>5.8.2-SNAPSHOT</worldguard.version>
     </properties>
 
     <repositories>
-        <repository>
-            <id>md_5-releases</id>
-            <url>http://repo.md-5.net/content/repositories/snapshots</url>
-        </repository>
+            <repository>
+                <id>censored-software</id>
+                <url>http://repo.censoredsoftware.com</url>
+            </repository>
         <repository>
             <id>sk89q-repo</id>
             <url>http://maven.sk89q.com/repo</url>
@@ -42,11 +43,10 @@
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
+            <artifactId>quasi-spigot</artifactId>
             <version>${spigot.version}</version>
-            <scope>compile</scope>
             <type>jar</type>
-            <optional>false</optional>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>
@@ -152,6 +152,44 @@
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.javatuples</pattern>
+                                    <shadedPattern>com.censoredsoftware.stoa.org.javatuples</shadedPattern>
+                                </relocation>
+
+                                <!-- Redo the damage for compatibility -->
+                                <relocation>
+                                    <pattern>org.bouncycastle</pattern>
+                                    <shadedPattern>net.minecraft.v${minecraft_version}.org.bouncycastle</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.bukkit.craftbukkit</pattern>
+                                    <shadedPattern>org.bukkit.craftbukkit.v${minecraft_version}</shadedPattern>
+                                    <excludes>
+                                        <exclude>org.bukkit.craftbukkit.Main*</exclude>
+                                    </excludes>
+                                </relocation>
+                                <relocation>
+                                    <pattern>net.minecraft.server</pattern>
+                                    <shadedPattern>net.minecraft.server.v${minecraft_version}</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

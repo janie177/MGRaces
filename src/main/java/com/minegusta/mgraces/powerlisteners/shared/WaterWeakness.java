@@ -2,6 +2,7 @@ package com.minegusta.mgraces.powerlisteners.shared;
 
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.player.MGPlayer;
+import com.minegusta.mgraces.worldguard.WGManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,10 +20,15 @@ public class WaterWeakness
         this.uuid = mgp.getUUID();
         p = Bukkit.getPlayer(uuid);
 
-        if(isInWater() || (isRain() && isNoShelter()))
+        if((isInWater() && isNotCancelled()) || (isRain() && isNotCancelled() && !isShelter()))
         {
             apply();
         }
+    }
+
+    private boolean isNotCancelled()
+    {
+        return WGManager.canGetDamage(p);
     }
 
     private boolean isRain()
@@ -35,7 +41,7 @@ public class WaterWeakness
         return p.getLocation().getBlock().getType().equals(Material.WATER) || p.getLocation().getBlock().getType().equals(Material.STATIONARY_WATER);
     }
 
-    private boolean isNoShelter()
+    private boolean isShelter()
     {
         return p.getWorld().getHighestBlockYAt(p.getLocation().getBlockX(), p.getLocation().getBlockZ()) > p.getLocation().getBlockY() + 1;
     }

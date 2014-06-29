@@ -24,7 +24,7 @@ public class WorldWeakness
 
     private boolean isWorld()
     {
-        return p.getWorld().getBiome(p.getLocation().getBlockX(), p.getLocation().getBlockZ()).equals(Biome.HELL);
+        return !p.getWorld().getBiome(p.getLocation().getBlockX(), p.getLocation().getBlockZ()).equals(Biome.HELL);
     }
 
     private void apply()

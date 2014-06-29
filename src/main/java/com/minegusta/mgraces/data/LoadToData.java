@@ -11,7 +11,7 @@ public class LoadToData
 {
     public static void loadAllToMap()
     {
-        for(Player p : Bukkit.getOnlinePlayers())
+        for(Player p : Bukkit.getServer().getOnlinePlayers())
         {
             UUID uuid = p.getUniqueId();
             MGPlayer player = new CreateMGPlayer(uuid).get();

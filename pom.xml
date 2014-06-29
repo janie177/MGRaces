@@ -6,7 +6,7 @@
 
     <groupId>com.minegusta</groupId>
     <artifactId>MgRaces</artifactId>
-    <version>0.1.2.8</version>
+    <version>0.1.2.9</version>
     <packaging>jar</packaging>
 
     <name>MgRaces</name>
@@ -44,8 +44,9 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>${spigot.version}</version>
-            <type>jar</type>
             <scope>compile</scope>
+            <type>jar</type>
+            <optional>false</optional>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>

@@ -62,6 +62,7 @@ public class DwarfInfection
     }
 
     private boolean isAxe() {
+        if(p.getItemInHand() == null)return false;
         for (int i : axes) {
             if (p.getItemInHand().getTypeId() == i) return true;
         }

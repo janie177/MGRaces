@@ -1,6 +1,5 @@
 package com.minegusta.mgraces.util;
 
-import com.minegusta.mgraces.files.PlayerConf;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.entity.LivingEntity;

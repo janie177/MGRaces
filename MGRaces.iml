@@ -11,6 +11,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.spigotmc:spigot-api:1.7.9-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.sk89q:worldguard:5.9.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.sk89q:worldedit:5.5.8" level="project" />
   </component>
 </module>
 

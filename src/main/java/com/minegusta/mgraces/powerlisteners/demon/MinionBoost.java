@@ -20,7 +20,7 @@ public class MinionBoost
         this.damaged = e.getEntity();
         this.damager = e.getDamager();
 
-        if(isHuman() && enemyIsLiving() && isLowHealth() && isDemon())
+        if(!e.isCancelled() && isHuman() && enemyIsLiving() && isLowHealth() && isDemon())
         {
             apply();
         }

@@ -22,7 +22,7 @@ public class AxeBoost
         this.damager = e.getDamager();
         this.e = e;
 
-        if(damagerIsPlayer() && victimIsLiving() && damagerIsDwarf() && hasAxe())
+        if(!e.isCancelled() && damagerIsPlayer() && victimIsLiving() && damagerIsDwarf() && hasAxe())
         {
             apply();
         }
@@ -45,6 +45,7 @@ public class AxeBoost
 
     private boolean hasAxe()
     {
+        if(((Player)damager).getItemInHand() == null)return false;
         for(int i : axes)
         {
             if(i == ((Player)damager).getItemInHand().getTypeId())return true;

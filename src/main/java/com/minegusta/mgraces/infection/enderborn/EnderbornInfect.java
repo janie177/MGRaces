@@ -47,7 +47,7 @@ public class EnderbornInfect
     private boolean hasCrystal()
     {
         ItemStack s = p.getItemInHand();
-        return s.getType().equals(Material.EYE_OF_ENDER) && s.getItemMeta().hasLore() && s.getItemMeta().getLore().toString().contains("Crystal Eye");
+        return s != null && s.getType().equals(Material.EYE_OF_ENDER) && s.getItemMeta().hasLore() && s.getItemMeta().getLore().toString().contains("Crystal Eye");
     }
 
     //Make enderborn.

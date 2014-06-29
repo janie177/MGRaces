@@ -47,7 +47,7 @@ public class DwarfInfect
 
     private boolean isGem()
     {
-        return i.hasItemMeta() && i.getItemMeta().hasLore() && i.getItemMeta().getLore().toString().contains("Shiny Gem");
+        return i != null && i.hasItemMeta() && i.getItemMeta().hasLore() && i.getItemMeta().getLore().toString().contains("Shiny Gem");
     }
 
 

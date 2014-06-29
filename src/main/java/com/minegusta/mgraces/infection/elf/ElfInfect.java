@@ -49,7 +49,7 @@ public class ElfInfect
 
     private boolean isStew()
     {
-        return stew.getType().equals(Material.MUSHROOM_SOUP) && stew.hasItemMeta() && stew.getItemMeta().hasLore() && stew.getItemMeta().getLore().toString().contains("Elf Stew");
+        return stew != null && stew.getType().equals(Material.MUSHROOM_SOUP) && stew.hasItemMeta() && stew.getItemMeta().hasLore() && stew.getItemMeta().getLore().toString().contains("Elf Stew");
     }
 
     private int getKills()

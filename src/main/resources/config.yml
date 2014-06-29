@@ -25,3 +25,6 @@ waterdamage: 1
 dwarfadditionalarrowdamage: 2
 axeadditionaldamage: 3
 bowadditionaldamage: 2
+elffiredamage: 1
+battlecrystrength: 2.0
+battlecrycooldown: 30

@@ -9,6 +9,7 @@ import com.minegusta.mgraces.listener.RaceListener;
 import com.minegusta.mgraces.recipes.Recipes;
 import com.minegusta.mgraces.tasks.BoostTask;
 import com.minegusta.mgraces.tasks.SaveTask;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +20,7 @@ public class Main extends JavaPlugin
 {
     public static Plugin PLUGIN;
     private static List<Integer> list = Lists.newArrayList();
+    public static boolean WORLD_GUARD_ENABLED;
 
     @Override
     public void onEnable()
@@ -37,6 +39,10 @@ public class Main extends JavaPlugin
         list.add(SaveTask.saveTask);
         list.add(BoostTask.boostTask);
         list.add(BoostTask.secondBoostTask);
+
+        // Depends
+        WORLD_GUARD_ENABLED = Bukkit.getPluginManager().isPluginEnabled("WorldGuard") && Bukkit.getPluginManager().getPlugin("WorldGuard") instanceof WorldGuardPlugin;
+
 
         //Recipes
         Recipes.register();

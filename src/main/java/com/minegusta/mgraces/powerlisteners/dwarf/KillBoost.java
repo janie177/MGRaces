@@ -45,6 +45,7 @@ public class KillBoost
 
     private boolean hasAxe()
     {
+        if(((Player)killer).getItemInHand() == null) return false;
         for(int i : axes)
         {
             if(i == ((Player)killer).getItemInHand().getTypeId())return true;

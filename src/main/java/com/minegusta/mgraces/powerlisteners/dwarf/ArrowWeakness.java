@@ -20,7 +20,7 @@ public class ArrowWeakness
         this.damaged = e.getEntity();
         this.cause = e.getCause();
 
-        if(isArrow() && isPlayer() && isDwarf())
+        if(!e.isCancelled() && isArrow() && isPlayer() && isDwarf())
         {
             apply();
         }

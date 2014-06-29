@@ -145,4 +145,22 @@ public class DefaultConf
         if(!conf().isSet("bowadditionaldamage"))return 1;
         return conf().getInt("bowadditionaldamage");
     }
+
+    public int elfFireDamage()
+    {
+        if(!conf().isSet("elffiredamage"))return 1;
+        return conf().getInt("elffiredamage");
+    }
+
+    public double battleCryStrength()
+    {
+        if(!conf().isSet("battlecrystrength"))return 1.5;
+        return conf().getDouble("battlecrystrength");
+    }
+
+    public int battleCryCooldown()
+    {
+        if(!conf().isSet("battlecrycooldown"))return 25;
+        return conf().getInt("battlecrycooldown");
+    }
 }

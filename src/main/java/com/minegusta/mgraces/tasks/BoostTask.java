@@ -7,6 +7,7 @@ import com.minegusta.mgraces.potioneffects.PermanentPotionEffect;
 import com.minegusta.mgraces.powerlisteners.demon.IceWeakness;
 import com.minegusta.mgraces.powerlisteners.demon.NetherBoost;
 import com.minegusta.mgraces.powerlisteners.demon.WorldWeakness;
+import com.minegusta.mgraces.powerlisteners.elf.WaterBoost;
 import com.minegusta.mgraces.powerlisteners.enderborn.InvisibleBoost;
 import com.minegusta.mgraces.powerlisteners.shared.WaterWeakness;
 import com.minegusta.mgraces.race.*;
@@ -65,7 +66,7 @@ public class BoostTask
                 }
                 if(mGP.getRace() instanceof Elf)
                 {
-
+                    new WaterBoost(mGP);
                     continue;
                 }
                 if(mGP.getRace() instanceof Dwarf)

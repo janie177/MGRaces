@@ -3,7 +3,6 @@ package com.minegusta.mgraces.infection.demon;
 import com.minegusta.mgraces.Main;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
-import com.minegusta.mgraces.files.PlayerConf;
 import com.minegusta.mgraces.infection.MakeRace;
 import com.minegusta.mgraces.race.Human;
 import com.minegusta.mgraces.util.MGMessage;

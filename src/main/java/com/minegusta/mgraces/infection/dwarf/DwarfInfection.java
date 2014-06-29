@@ -4,7 +4,6 @@ import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.infection.MakeRace;
 import com.minegusta.mgraces.race.Human;
 import com.minegusta.mgraces.util.MGMessage;
-import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.Sound;

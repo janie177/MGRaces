@@ -10,4 +10,6 @@ public class TempData
 {
     public static ConcurrentMap<UUID, MGPlayer> raceMap = Maps.newConcurrentMap();
     public static ConcurrentMap<UUID, Integer> elfKills = Maps.newConcurrentMap();
+    public static ConcurrentMap<UUID, Long> battleCryMap = Maps.newConcurrentMap();
+    public static ConcurrentMap<UUID, Long> minionMap = Maps.newConcurrentMap();
 }

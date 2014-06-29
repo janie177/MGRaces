@@ -7,6 +7,7 @@ import com.minegusta.mgraces.files.DefaultConfigFile;
 import com.minegusta.mgraces.files.PlayerFile;
 import com.minegusta.mgraces.listener.RaceListener;
 import com.minegusta.mgraces.recipes.Recipes;
+import com.minegusta.mgraces.tasks.BoostTask;
 import com.minegusta.mgraces.tasks.SaveTask;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -34,6 +35,8 @@ public class Main extends JavaPlugin
 
         //Tasks
         list.add(SaveTask.saveTask);
+        list.add(BoostTask.boostTask);
+        list.add(BoostTask.secondBoostTask);
 
         //Recipes
         Recipes.register();

@@ -1,6 +1,5 @@
 package com.minegusta.mgraces.files;
 
-import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -103,5 +102,47 @@ public class DefaultConf
     {
         if(!conf().isSet("demonchant"))return "Wakka Wakka Wakka Wakka Hail PacMan!!";
         return conf().getString("demonchant");
+    }
+
+    public int bleedChance()
+    {
+        if(!conf().isSet("bleedchance"))return 6;
+        return conf().getInt("bleedchance");
+    }
+
+    public int bleedDamage()
+    {
+        if(!conf().isSet("bleeddamage"))return 1;
+        return conf().getInt("bleeddamage");
+    }
+
+    public int bleedDuration()
+    {
+        if(!conf().isSet("bleedduration"))return 3;
+        return conf().getInt("bleedduration");
+    }
+
+    public int waterDamage()
+    {
+        if(!conf().isSet("waterdamage"))return 1;
+        return conf().getInt("waterdamage");
+    }
+
+    public int arrowDamage()
+    {
+        if(!conf().isSet("dwarfadditionalarrowdamage"))return 1;
+        return conf().getInt("dwarfadditionalarrowdamage");
+    }
+
+    public int axeDamage()
+    {
+        if(!conf().isSet("axeadditionaldamage"))return 1;
+        return conf().getInt("axeadditionaldamage");
+    }
+
+    public int bowDamage()
+    {
+        if(!conf().isSet("bowadditionaldamage"))return 1;
+        return conf().getInt("bowadditionaldamage");
     }
 }

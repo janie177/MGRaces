@@ -2,13 +2,11 @@ package com.minegusta.mgraces.infection.dwarf;
 
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.race.Human;
-import com.minegusta.mgraces.util.MGMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-
 import org.bukkit.entity.Skeleton;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;

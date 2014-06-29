@@ -22,6 +22,11 @@ public class MGPlayer
         return name;
     }
 
+    public UUID getUUID()
+    {
+        return uuid;
+    }
+
     public Race getRace()
     {
         return race;

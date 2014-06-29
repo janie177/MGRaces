@@ -1,7 +1,6 @@
 package com.minegusta.mgraces.misclisteners;
 
 import com.minegusta.mgraces.data.TempData;
-import com.minegusta.mgraces.health.RaceHealth;
 import com.minegusta.mgraces.player.CreateMGPlayer;
 import com.minegusta.mgraces.player.MGPlayer;
 import org.bukkit.event.player.PlayerJoinEvent;

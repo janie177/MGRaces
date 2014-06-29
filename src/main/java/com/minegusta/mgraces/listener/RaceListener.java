@@ -11,10 +11,20 @@ import com.minegusta.mgraces.infection.enderborn.EnderbornInfect;
 import com.minegusta.mgraces.misclisteners.LoadToMap;
 import com.minegusta.mgraces.misclisteners.RemoveFromMap;
 import com.minegusta.mgraces.misclisteners.SwitchWorld;
+import com.minegusta.mgraces.powerlisteners.demon.FallDamageBoost;
+import com.minegusta.mgraces.powerlisteners.demon.MinionBoost;
+import com.minegusta.mgraces.powerlisteners.dwarf.ArrowWeakness;
+import com.minegusta.mgraces.powerlisteners.dwarf.AxeBoost;
+import com.minegusta.mgraces.powerlisteners.dwarf.KillBoost;
+import com.minegusta.mgraces.powerlisteners.elf.FruitBoost;
+import com.minegusta.mgraces.powerlisteners.enderborn.BleedBoost;
+import com.minegusta.mgraces.powerlisteners.enderborn.MeatBoost;
 import com.minegusta.mgraces.util.WorldCheck;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.*;
 
@@ -57,12 +67,32 @@ public class RaceListener implements Listener
     }
 
     @EventHandler
+    public void event(EntityDamageByEntityEvent e)
+    {
+        //World Check
+        if(!WorldCheck.worldCheck(e.getEntity().getWorld()))return;
+        new MinionBoost(e);
+        new BleedBoost(e);
+        new ArrowWeakness(e);
+        new AxeBoost(e);
+    }
+
+    @EventHandler
+    public void event(EntityDamageEvent e)
+    {
+        //World Check
+        if(!WorldCheck.worldCheck(e.getEntity().getWorld()))return;
+        new FallDamageBoost(e);
+    }
+
+    @EventHandler
     public void event(EntityDeathEvent e)
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getEntity().getWorld()))return;
 
         new ElfKills(e);
+        new KillBoost(e);
         new DwarfInfection(e);
 
     }
@@ -72,9 +102,9 @@ public class RaceListener implements Listener
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
-
+        new FruitBoost(e);
         new ElfInfect(e);
-
+        new MeatBoost(e);
     }
 
     @EventHandler

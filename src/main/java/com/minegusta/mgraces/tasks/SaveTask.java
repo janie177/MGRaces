@@ -4,7 +4,6 @@ import com.minegusta.mgraces.Main;
 import com.minegusta.mgraces.files.PlayerFile;
 import com.minegusta.mgraces.files.YamlUtil;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 public class SaveTask
 {

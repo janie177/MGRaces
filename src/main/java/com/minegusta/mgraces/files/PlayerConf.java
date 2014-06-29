@@ -1,13 +1,9 @@
 package com.minegusta.mgraces.files;
 
-import com.google.common.collect.Lists;
 import com.minegusta.mgraces.race.Human;
 import com.minegusta.mgraces.race.Race;
 import com.minegusta.mgraces.util.StringToRace;
 import org.bukkit.configuration.file.FileConfiguration;
-
-import java.util.List;
-import java.util.UUID;
 
 public class PlayerConf
 {

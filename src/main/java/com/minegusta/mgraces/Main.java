@@ -40,7 +40,7 @@ public class Main extends JavaPlugin
         //Tasks
         list.add(SaveTask.saveTask);
         list.add(BoostTask.boostTask);
-        list.add(ParticleTask.particleTask());
+        list.add(ParticleTask.particleTask);
         list.add(BoostTask.secondBoostTask);
 
         // Depends

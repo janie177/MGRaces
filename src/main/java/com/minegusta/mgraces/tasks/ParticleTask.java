@@ -7,8 +7,7 @@ import org.bukkit.entity.Player;
 
 public class ParticleTask
 {
-    public static int particleTask() {
-        return Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Main.PLUGIN, new Runnable()
+    public static int particleTask = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Main.PLUGIN, new Runnable()
         {
             @Override
             public void run()

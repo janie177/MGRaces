@@ -64,7 +64,7 @@ public class DemonInfect {
     }
 
     private boolean hasSheep() {
-        for (Entity e : p.getNearbyEntities(3, 0, 3)) {
+        for (Entity e : p.getNearbyEntities(3, 2, 3)) {
             if (e instanceof Sheep) {
                 sheep = (LivingEntity) e;
                 if(((Sheep)sheep).isAdult())return false;

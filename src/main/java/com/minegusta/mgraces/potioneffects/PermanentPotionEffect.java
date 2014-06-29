@@ -33,7 +33,7 @@ public class PermanentPotionEffect
         for(PotionEffect e : p.getActivePotionEffects())
         {
             if(e.getType().equals(type))p.getActivePotionEffects().remove(e);
-            p.addPotionEffect(new PotionEffect(type, 20 * seconds, amplifier, false));
         }
+        p.addPotionEffect(new PotionEffect(type, 20 * seconds, amplifier, false));
     }
 }

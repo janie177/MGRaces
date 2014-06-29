@@ -53,6 +53,14 @@ public class MinionBoost
         if(!CoolDown.cooledDown(damaged.getUniqueId(), TempData.minionMap, 180))return;
         CoolDown.newCooldown(damaged.getUniqueId(), TempData.minionMap);
         final Location l = damaged.getLocation();
+
+        for(int n = 0; n < 9; n++)
+        {
+            Entity e = l.getWorld().spawnEntity(l, EntityType.PIG_ZOMBIE);
+            PigZombie m = (PigZombie) e;
+            m.setTarget((LivingEntity) damager);
+        }
+
         for(int le = -5; le < 5; le++)
         {
             for(int le2 = -5; le2 < 5; le2++)
@@ -61,9 +69,6 @@ public class MinionBoost
                 {
                     final int loc1 = le2;
                     final int loc2 = le;
-                    Entity e = l.getWorld().spawnEntity(l.getBlock().getRelative(loc1, 0, loc2).getLocation(), EntityType.PIG_ZOMBIE);
-                    PigZombie m = (PigZombie) e;
-                    m.setTarget((LivingEntity)damager);
                     for(int i = 0; i < 20 * 6; i++)
                     {
                         final int k = i;

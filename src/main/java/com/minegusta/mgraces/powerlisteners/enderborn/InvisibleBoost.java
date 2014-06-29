@@ -36,7 +36,7 @@ public class InvisibleBoost
                 @Override
                 public void run()
                 {
-                    if(k % 5 == 0)new PlayEffect(uuid, Effect.EXTINGUISH, 1, 0, 1, 15);
+                    if(k % 4 == 0)new PlayEffect(uuid, Effect.POTION_SWIRL_TRANSPARENT, 1, 0, 1, 15);
                 }
             },i);
         }

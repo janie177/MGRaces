@@ -40,7 +40,7 @@ public class BoostTask
                 }
                 if(mGP.getRace() instanceof EnderBorn)
                 {
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.NIGHT_VISION, 0, 4);
+                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.NIGHT_VISION, 0, 10);
                     new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.JUMP, 0, 4);
                     continue;
                 }
@@ -51,7 +51,7 @@ public class BoostTask
                 }
             }
         }
-    }, 0 , 20 * 3);
+    }, 0 , 20 * 2);
 
     public static int secondBoostTask = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Main.PLUGIN, new Runnable() {
         @Override

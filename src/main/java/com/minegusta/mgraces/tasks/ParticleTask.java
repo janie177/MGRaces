@@ -8,15 +8,14 @@ import org.bukkit.entity.Player;
 public class ParticleTask
 {
     public static int particleTask = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Main.PLUGIN, new Runnable()
+    {
+        @Override
+        public void run()
         {
-            @Override
-            public void run()
+            for (Player p : Bukkit.getOnlinePlayers())
             {
-                for (Player p : Bukkit.getOnlinePlayers())
-                {
-                    ((CraftLivingEntity)p).getHandle().getDataWatcher().watch(7, Integer.valueOf(0));
-                }
+                ((CraftLivingEntity)p).getHandle().getDataWatcher().watch(7, Integer.valueOf(0));
             }
-        }, 0, 30 * 4);
-    }
+        }
+    }, 0, 30 * 4);
 }

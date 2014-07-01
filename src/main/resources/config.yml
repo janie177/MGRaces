@@ -6,6 +6,7 @@ enabledworlds:
 commandprefix: '&6[&eMG&6]&f'
 dwarfhealth: 24
 elfhealth: 20
+aurorahealth: 22
 demonhealth: 22
 humanhealth: 26
 enderbornhealth: 22
@@ -14,9 +15,9 @@ altarsecondblock: 155
 altarsecondblockamount: 9
 altarsecondblockradius: 6
 cureitems:
-  - '264:10'
-  - '89:10'
-  - '98:64'
+  - '264:6'
+  - '388:5'
+  - '322:1'
 demonchant: 'Enemies of the fire shall perish, I bind my soul in flames!'
 bleedchance: 6
 bleeddamage: 1

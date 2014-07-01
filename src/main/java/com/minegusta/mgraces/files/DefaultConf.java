@@ -56,6 +56,12 @@ public class DefaultConf
         return conf().getInt("elfhealth");
     }
 
+    public int auroraHealth()
+    {
+        if (!conf().isSet("aurorahealth")) return 20;
+        return conf().getInt("aurorahealth");
+    }
+
     public int altarBlock()
     {
         if(!conf().isSet("altarblock"))return 133;

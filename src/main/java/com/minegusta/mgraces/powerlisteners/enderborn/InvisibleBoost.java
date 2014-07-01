@@ -1,11 +1,8 @@
 package com.minegusta.mgraces.powerlisteners.enderborn;
 
-import com.minegusta.mgraces.Main;
 import com.minegusta.mgraces.player.MGPlayer;
 import com.minegusta.mgraces.potioneffects.PermanentPotionEffect;
-import com.minegusta.mgraces.util.PlayEffect;
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.UUID;
@@ -29,16 +26,5 @@ public class InvisibleBoost
     private void apply()
     {
         new PermanentPotionEffect(uuid, PotionEffectType.INVISIBILITY, 0, 2);
-        for(int i = 0; i < 20; i++)
-        {
-            final int k = i;
-            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
-                @Override
-                public void run()
-                {
-                    if(k % 4 == 0)new PlayEffect(uuid, Effect.FOOTSTEP, 1, 0, 1, 8);
-                }
-            },i);
-        }
     }
 }

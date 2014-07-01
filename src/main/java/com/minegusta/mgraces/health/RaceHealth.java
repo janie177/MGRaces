@@ -48,6 +48,14 @@ public class RaceHealth
             return;
         }
 
+        if(r instanceof Aurora)
+        {
+            int x = conf.auroraHealth();
+            p.setHealthScale(x);
+            p.setMaxHealth(x);
+            return;
+        }
+
         if(r instanceof Human)
         {
             int x = conf.humanHealth();

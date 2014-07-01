@@ -159,7 +159,7 @@ public class RaceCommand implements CommandExecutor
 
     private boolean isRace(String s)
     {
-        return s.equalsIgnoreCase("Dwarf") || s.equalsIgnoreCase("Elf") || s.equalsIgnoreCase("human") || s.equalsIgnoreCase("enderborn") || s.equalsIgnoreCase("demon");
+        return s.equalsIgnoreCase("Dwarf") || s.equalsIgnoreCase("Elf") || s.equalsIgnoreCase("human") || s.equalsIgnoreCase("enderborn") || s.equalsIgnoreCase("demon") || s.equalsIgnoreCase("aurora");
     }
 
     private void sendCureItems()
@@ -177,6 +177,7 @@ public class RaceCommand implements CommandExecutor
         dwarf(dwarfInfo, dwarfInfect),
         human(humanInfo),
         demon(demonInfo, demonInfect),
+        aurora(auroraInfo, auroraInfect),
         enderborn(enderbornInfo, enderbornInfect);
 
         private List<String> info;
@@ -205,20 +206,22 @@ public class RaceCommand implements CommandExecutor
 
 
     private List<String> help = Lists.newArrayList("/Race Help " + ChatColor.GRAY + "- Show this help menu.", "/Race List " + ChatColor.GRAY + "- Display a list of races.", "/Race Info <Race> " + ChatColor.GRAY + "- Info on the given race.", "/Race Show " + ChatColor.GRAY + "- Show info about your race.", "/Race Cure " + ChatColor.GRAY + "- Display cure info.", "/Race Infect <Race> " + ChatColor.GRAY + "- Show how to become a race.", "/Race Recipes " + ChatColor.GRAY + "- Show all recipes related to races.");
-    private List<String> races = Lists.newArrayList("Elf", "Dwarf", "Enderborn", "Demon", "Human");
+    private List<String> races = Lists.newArrayList("Elf", "Dwarf", "Enderborn", "Demon", "Human", "Aurora");
 
     private static List<String> elfInfo = Lists.newArrayList("Elves always have a speed boost.", "Elves have " + ChatColor.RED + Integer.toString(conf.elfHealth()/2) + ChatColor.YELLOW + " hearts health.", "Elves get 15 seconds of speed II when eating vegetarian food.", "When in water, elves regenerate health.", "Elves can instantly tame any animal.", "Elves take additional damage from fire.", "They are skilled archers and deal additional bow damage.");
     private static List<String> dwarfInfo = Lists.newArrayList("Dwarves always have a mining boost.", "Dwarves have " + ChatColor.RED + Integer.toString(conf.dwarfHealth()/2) + ChatColor.YELLOW + " hearts health.", "When slaying a foe by axe, Dwarves get a Strength II boost.", "Dwarves are weak to arrows.", "When using an axe, Dwarves deal additional damage.", "When right clicking with an axe, Dwarves knock back all enemies.");
     private static List<String> humanInfo = Lists.newArrayList("Humans have " + ChatColor.RED + Integer.toString(conf.humanHealth()/2) + ChatColor.YELLOW + " hearts health.", "They have no special powers, nor weaknesses.");
     private static List<String> demonInfo = Lists.newArrayList("Demons are immune to fire and lava.", "Demons have " + ChatColor.RED + Integer.toString(conf.demonHealth()/2) + ChatColor.YELLOW + " hearts health.", "When demons have low health, they summon minions to aid them.", "Demons are very strong in the Nether.", "In the Overworld, Demons are very weak.", "In ice biomes, Demons are even weaker.", "Water is also a weakness, and will harm Demons.");
     private static List<String> enderbornInfo = Lists.newArrayList("Enderborn always have night vision and a jump boost.", "Enderborn have " + ChatColor.RED + Integer.toString(conf.enderBornHealth()/2) + ChatColor.YELLOW + " hearts health.", "When Enderborn eat raw meat, they gain a short speed IV boost.", "Enderborn vanish in shadow while sneaking.", "Enderborn have a chance to make opponents bleed.", "Enderborn will be hurt by touching water or rain.");
+    private static List<String> auroraInfo = Lists.newArrayList("Aurora have " + ChatColor.RED + Integer.toString(conf.auroraHealth()/2) + ChatColor.YELLOW + " hearts health.", "When in an ice biome, aurora get boosts.", "However in the heat, they are weakened.");
 
-    private static List<String> elfInfect = Lists.newArrayList("To become an elf, follow these steps:", "- " + ChatColor.GRAY + "Get 100 mob kills with a bow.", "Craft an Elf Stew, with these ingredients:", ChatColor.DARK_PURPLE + "3 Yellow Flowers", ChatColor.DARK_PURPLE + "1 Mushroom Soup", ChatColor.DARK_PURPLE + "2 Potatoes", ChatColor.DARK_PURPLE + "2 Carrots", ChatColor.DARK_PURPLE + "1 Leaf", "Now eat the stew.");
-    private static List<String> dwarfInfect = Lists.newArrayList("To become a dwarf, follow these steps:", "- " + ChatColor.GRAY + "", "- " + ChatColor.GRAY + "Craft a shiny Gem.", "- " + ChatColor.GRAY + "Use the gem on a skeleton.", "- " + ChatColor.GRAY + "Use an axe to kill the angry spirit.");
-    private static List<String> demonInfect = Lists.newArrayList("To become a demon, perform these steps: ", "- " + ChatColor.GRAY + "Make a 7 by 7 obsidian cross.", "- " + ChatColor.GRAY + "Put a baby virgin sheep on it.", "Stand exactly in the center.", "Speak the follow lines:", "- " + ChatColor.DARK_PURPLE + conf.demonChant());
+    private static List<String> auroraInfect = Lists.newArrayList("To become Aurora, follow these steps:", "- " + ChatColor.GRAY + "Craft an Ice Crystal.", "- " + ChatColor.GRAY + "Find water in an ice biome.", "- " + ChatColor.GRAY + "Drown with the crystal in your hand.");
+    private static List<String> elfInfect = Lists.newArrayList("To become an Elf, follow these steps:", "- " + ChatColor.GRAY + "Get 100 mob kills with a bow.", "Craft an Elf Stew, with these ingredients:", ChatColor.DARK_PURPLE + "3 Yellow Flowers", ChatColor.DARK_PURPLE + "1 Mushroom Soup", ChatColor.DARK_PURPLE + "2 Potatoes", ChatColor.DARK_PURPLE + "2 Carrots", ChatColor.DARK_PURPLE + "1 Leaf", "Now eat the stew.");
+    private static List<String> dwarfInfect = Lists.newArrayList("To become a Dwarf, follow these steps:", "- " + ChatColor.GRAY + "", "- " + ChatColor.GRAY + "Craft a shiny Gem.", "- " + ChatColor.GRAY + "Use the gem on a skeleton.", "- " + ChatColor.GRAY + "Use an axe to kill the angry spirit.");
+    private static List<String> demonInfect = Lists.newArrayList("To become a Demon, perform these steps: ", "- " + ChatColor.GRAY + "Make a 7 by 7 obsidian cross.", "- " + ChatColor.GRAY + "Put a baby virgin sheep on it.", "Stand exactly in the center.", "Speak the follow lines:", "- " + ChatColor.DARK_PURPLE + conf.demonChant());
     private static List<String> enderbornInfect = Lists.newArrayList("To become an Enderborn, follow these steps:", "- " + ChatColor.GRAY + "Craft a Crystal Eye.", "- " + ChatColor.GRAY + "Right click an enderman.", "- " + ChatColor.GRAY + "Wait for the transfusion to complete." );
 
-    private String[][] recipes = {{"Crystal Eye", "1 Eye of Ender", "4 Diamonds", "4 Emeralds"}, {"Elf Stew", "2 Carrots", "2 Potatoes", "1 Mushroom Soup", "1 Leaf", "3 Dandellions"}, {"Shiny Gem", "4 Gold Bars", "4 Gold Blocks" , "1 Nether Star"}};
+    private String[][] recipes = {{"Crystal Eye", "1 Eye of Ender", "4 Diamonds", "4 Emeralds"}, {"Elf Stew", "2 Carrots", "2 Potatoes", "1 Mushroom Soup", "1 Leaf", "3 Dandellions"}, {"Shiny Gem", "4 Gold Bars", "4 Gold Blocks" , "1 Nether Star"}, {"Ice Crystal", "1 Diamond", "4 Snowballs", "4 Ice Blocks"}};
     private List<String> cure = Lists.newArrayList("If you want to become human again, follow these steps:", ChatColor.GRAY + "Build an altar out of:", " - " + ChatColor.DARK_PURPLE + "1 " + Material.getMaterial(conf.altarBlock()).name(), " - " + ChatColor.DARK_PURPLE + Integer.toString(conf.altarSecondBlockAmount()) + " " + Material.getMaterial(conf.altarSecondBlock()).name(), "You need the following items in your inventory:");
 
 

@@ -4,6 +4,8 @@ import com.minegusta.mgraces.Main;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.player.MGPlayer;
 import com.minegusta.mgraces.potioneffects.PermanentPotionEffect;
+import com.minegusta.mgraces.powerlisteners.aurora.ColdBoost;
+import com.minegusta.mgraces.powerlisteners.aurora.HeatWeakness;
 import com.minegusta.mgraces.powerlisteners.demon.IceWeakness;
 import com.minegusta.mgraces.powerlisteners.demon.NetherBoost;
 import com.minegusta.mgraces.powerlisteners.demon.WorldWeakness;
@@ -30,28 +32,32 @@ public class BoostTask
                 }
                 if(mGP.getRace() instanceof Elf)
                 {
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.SPEED, 0, 4);
+                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.SPEED, 0, 10);
                     continue;
                 }
                 if(mGP.getRace() instanceof Dwarf)
                 {
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.FAST_DIGGING, 0, 4);
+                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.FAST_DIGGING, 0, 10);
                     continue;
                 }
                 if(mGP.getRace() instanceof EnderBorn)
                 {
                     new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.NIGHT_VISION, 0, 15);
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.JUMP, 0, 4);
+                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.JUMP, 0, 10);
+                    continue;
+                }
+                if(mGP.getRace() instanceof Aurora)
+                {
                     continue;
                 }
                 if(mGP.getRace() instanceof Demon)
                 {
                     new WorldWeakness(mGP);
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.FIRE_RESISTANCE, 1, 4);
+                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.FIRE_RESISTANCE, 1, 10);
                 }
             }
         }
-    }, 0 , 20 * 2);
+    }, 0 , 20 * 3);
 
     public static int secondBoostTask = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Main.PLUGIN, new Runnable() {
         @Override
@@ -78,6 +84,12 @@ public class BoostTask
                 {
                     new WaterWeakness(mGP);
                     new InvisibleBoost(mGP);
+                    continue;
+                }
+                if(mGP.getRace() instanceof Aurora)
+                {
+                    new ColdBoost(mGP);
+                    new HeatWeakness(mGP);
                     continue;
                 }
                 if(mGP.getRace() instanceof Demon)

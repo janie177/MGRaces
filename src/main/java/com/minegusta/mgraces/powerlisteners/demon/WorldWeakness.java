@@ -29,7 +29,7 @@ public class WorldWeakness
 
     private void apply()
     {
-        new PermanentPotionEffect(uuid, PotionEffectType.WEAKNESS, 1, 4);
+        new PermanentPotionEffect(uuid, PotionEffectType.WEAKNESS, 1, 10);
     }
 }
 

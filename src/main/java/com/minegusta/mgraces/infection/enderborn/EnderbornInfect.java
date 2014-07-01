@@ -20,7 +20,6 @@ public class EnderbornInfect
     private Player p;
     private Entity entity;
 
-
     public EnderbornInfect(PlayerInteractEntityEvent e)
     {
         this.p = e.getPlayer();

@@ -18,6 +18,7 @@ public class Recipes
         crystalRecipe();
         elfRecipe();
         dwarfRecipe();
+        auroraRecipe();
     }
 
     private static void elfRecipe()
@@ -87,6 +88,28 @@ public class Recipes
 
         Bukkit.getServer().addRecipe(elfRecipe);
     }
+
+    private static void auroraRecipe()
+    {
+        ItemStack i = new ItemStack(Material.DIAMOND, 1);
+        ItemMeta meta = i.getItemMeta();
+        List<String> lore = Lists.newArrayList();
+        lore.add(ChatColor.AQUA + "Ice Crystal");
+        meta.setLore(lore);
+        meta.setDisplayName(ChatColor.DARK_AQUA + "Shiny Ice Crystal");
+        i.setItemMeta(meta);
+
+        Recipe elfRecipe = new ShapelessRecipe(i)
+        {
+            {
+                addIngredient(4, Material.SNOW_BALL);
+                addIngredient(1, Material.DIAMOND);
+                addIngredient(4, Material.SNOW_BLOCK);
+            }
+        };
+        Bukkit.getServer().addRecipe(elfRecipe);
+    }
+
 
 
 }

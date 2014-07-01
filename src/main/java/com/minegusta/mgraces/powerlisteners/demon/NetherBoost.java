@@ -31,10 +31,10 @@ public class NetherBoost
 
     private void apply()
     {
-        new PermanentPotionEffect(uuid, PotionEffectType.DAMAGE_RESISTANCE, 0, 3);
-        new PermanentPotionEffect(uuid, PotionEffectType.JUMP, 2, 3);
-        new PermanentPotionEffect(uuid, PotionEffectType.SPEED, 2, 3);
-        new PermanentPotionEffect(uuid, PotionEffectType.INCREASE_DAMAGE, 0, 3);
+        new PermanentPotionEffect(uuid, PotionEffectType.DAMAGE_RESISTANCE, 0, 10);
+        new PermanentPotionEffect(uuid, PotionEffectType.JUMP, 2, 10);
+        new PermanentPotionEffect(uuid, PotionEffectType.SPEED, 2, 10);
+        new PermanentPotionEffect(uuid, PotionEffectType.INCREASE_DAMAGE, 0, 10);
         new PlayEffect(uuid, Effect.FLAME, 2, 0, 2, 6);
     }
 }

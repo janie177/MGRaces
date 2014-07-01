@@ -41,6 +41,6 @@ public class MeatBoost
 
     private void apply()
     {
-        p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5 * 20, 3));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5 * 20, 3));
     }
 }

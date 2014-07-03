@@ -37,7 +37,7 @@ public class AuroraInfect
 
     private boolean isCrystal()
     {
-        return crystal != null && crystal.getType().equals(Material.MUSHROOM_SOUP) && crystal.hasItemMeta() && crystal.getItemMeta().hasLore() && crystal.getItemMeta().getLore().toString().contains("Ice Crystal");
+        return crystal != null && crystal.getType().equals(Material.DIAMOND) && crystal.hasItemMeta() && crystal.getItemMeta().hasLore() && crystal.getItemMeta().getLore().toString().contains("Ice Crystal");
     }
 
     private boolean isHuman()

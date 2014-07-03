@@ -8,6 +8,7 @@ public enum StringToRace
     elf(new Elf()),
     enderborn(new EnderBorn()),
     demon(new Demon()),
+    aurora(new Aurora()),
     dwarf(new Dwarf());
 
 

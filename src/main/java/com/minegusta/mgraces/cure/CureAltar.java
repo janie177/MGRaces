@@ -13,6 +13,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.UUID;
 
 public class CureAltar
@@ -72,6 +73,12 @@ public class CureAltar
         {
             if(!inv.contains(s.getType(), s.getAmount()))
             {
+                MGMessage.message(p, "You do not have all the required items to use this altar:");
+                List<ItemStack> items = conf.cureItems();
+                for(ItemStack i : items)
+                {
+                    p.sendMessage(conf.getPrefix() + ChatColor.YELLOW + " - " + ChatColor.DARK_PURPLE + Integer.toString(i.getAmount()) + " " + i.getType().name());
+                }
                 return false;
             }
         }

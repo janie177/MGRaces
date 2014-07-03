@@ -2,6 +2,7 @@ package com.minegusta.mgraces.listener;
 
 import com.minegusta.mgraces.cure.CureAltar;
 import com.minegusta.mgraces.health.SetHealth;
+import com.minegusta.mgraces.infection.aurora.AuroraInfect;
 import com.minegusta.mgraces.infection.demon.DemonInfect;
 import com.minegusta.mgraces.infection.dwarf.DwarfInfect;
 import com.minegusta.mgraces.infection.dwarf.DwarfInfection;
@@ -29,10 +30,7 @@ import com.minegusta.mgraces.util.WorldCheck;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.EntityTameEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.player.*;
 
 public class RaceListener implements Listener
@@ -104,7 +102,6 @@ public class RaceListener implements Listener
         new ElfKills(e);
         new KillBoost(e);
         new DwarfInfection(e);
-
     }
 
     @EventHandler
@@ -160,12 +157,13 @@ public class RaceListener implements Listener
     }
 
     @EventHandler
-    public void event(PlayerToggleSneakEvent e)
+    public void event(PlayerDeathEvent e)
     {
         //World Check
-        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getEntity().getWorld()))return;
 
-        new WaterSpeedBoost(e);
+        new AuroraInfect(e);
+
     }
 
     @EventHandler

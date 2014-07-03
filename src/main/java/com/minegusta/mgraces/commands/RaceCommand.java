@@ -221,7 +221,7 @@ public class RaceCommand implements CommandExecutor
     private static List<String> demonInfect = Lists.newArrayList("To become a Demon, perform these steps: ", "- " + ChatColor.GRAY + "Make a 7 by 7 obsidian cross.", "- " + ChatColor.GRAY + "Put a baby virgin sheep on it.", "Stand exactly in the center.", "Speak the follow lines:", "- " + ChatColor.DARK_PURPLE + conf.demonChant());
     private static List<String> enderbornInfect = Lists.newArrayList("To become an Enderborn, follow these steps:", "- " + ChatColor.GRAY + "Craft a Crystal Eye.", "- " + ChatColor.GRAY + "Right click an enderman.", "- " + ChatColor.GRAY + "Wait for the transfusion to complete." );
 
-    private String[][] recipes = {{"Crystal Eye", "1 Eye of Ender", "4 Diamonds", "4 Emeralds"}, {"Elf Stew", "2 Carrots", "2 Potatoes", "1 Mushroom Soup", "1 Leaf", "3 Dandellions"}, {"Shiny Gem", "4 Gold Bars", "4 Gold Blocks" , "1 Nether Star"}, {"Ice Crystal", "1 Diamond", "4 Snowballs", "4 Ice Blocks"}};
+    private String[][] recipes = {{"Crystal Eye", "1 Eye of Ender", "4 Diamonds", "4 Emeralds"}, {"Elf Stew", "2 Carrots", "2 Potatoes", "1 Mushroom Soup", "1 Leaf", "3 Dandellions"}, {"Shiny Gem", "4 Gold Bars", "4 Gold Blocks" , "1 Nether Star"}, {"Ice Crystal", "1 Diamond", "4 Snowballs", "4 Snow Blocks"}};
     private List<String> cure = Lists.newArrayList("If you want to become human again, follow these steps:", ChatColor.GRAY + "Build an altar out of:", " - " + ChatColor.DARK_PURPLE + "1 " + Material.getMaterial(conf.altarBlock()).name(), " - " + ChatColor.DARK_PURPLE + Integer.toString(conf.altarSecondBlockAmount()) + " " + Material.getMaterial(conf.altarSecondBlock()).name(), "You need the following items in your inventory:");
 
 

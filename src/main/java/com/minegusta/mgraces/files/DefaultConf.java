@@ -22,8 +22,8 @@ public class DefaultConf
 
     public String getPrefix()
     {
-        if(!conf().isSet("commandprefix"))return ChatColor.GOLD + "[MG] ";
-        return conf().getString("commandprefix");
+        if(!conf().isSet("commandprefix"))return ChatColor.GOLD + "[MG]";
+        return ChatColor.translateAlternateColorCodes('&',conf().getString("commandprefix"));
     }
 
     public int dwarfHealth() 

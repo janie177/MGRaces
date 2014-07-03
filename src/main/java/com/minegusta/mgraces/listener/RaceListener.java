@@ -11,6 +11,8 @@ import com.minegusta.mgraces.infection.enderborn.EnderbornInfect;
 import com.minegusta.mgraces.misclisteners.LoadToMap;
 import com.minegusta.mgraces.misclisteners.RemoveFromMap;
 import com.minegusta.mgraces.misclisteners.SwitchWorld;
+import com.minegusta.mgraces.powerlisteners.aurora.NoSnowFallDamage;
+import com.minegusta.mgraces.powerlisteners.aurora.WaterSpeedBoost;
 import com.minegusta.mgraces.powerlisteners.demon.FallDamageBoost;
 import com.minegusta.mgraces.powerlisteners.demon.MinionBoost;
 import com.minegusta.mgraces.powerlisteners.dwarf.ArrowWeakness;
@@ -90,6 +92,7 @@ public class RaceListener implements Listener
         if(!WorldCheck.worldCheck(e.getEntity().getWorld()))return;
         new FallDamageBoost(e);
         new FireWeakness(e);
+        new NoSnowFallDamage(e);
     }
 
     @EventHandler
@@ -161,6 +164,8 @@ public class RaceListener implements Listener
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+
+        new WaterSpeedBoost(e);
     }
 
     @EventHandler

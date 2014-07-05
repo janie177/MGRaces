@@ -30,7 +30,7 @@ public class PermanentPotionEffect
         if (!WorldCheck.worldCheck(p.getWorld())) return;
 
         for (PotionEffect pe : p.getActivePotionEffects()) {
-            if (pe.getType().equals(type)) {
+            if (pe.getType().equals(type) && pe.getAmplifier() <= amplifier) {
                 p.removePotionEffect(type);
             }
         }

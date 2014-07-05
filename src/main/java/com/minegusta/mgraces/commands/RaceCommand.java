@@ -71,6 +71,7 @@ public class RaceCommand implements CommandExecutor
             if(args[0].equalsIgnoreCase("reload") && p.isOp())
             {
                 DefaultConfigFile.reloadConfig();
+                conf = new DefaultConf();
                 sendMessage("Config file reloaded!");
                 return true;
             }

@@ -37,7 +37,7 @@ public class WaterSpeedBoost
 
     private void apply()
     {
-        Vector victor = (p.getPassenger() != null && p.getLocation().getDirection().getY() > 0 ? p.getLocation().getDirection().clone().setY(0) : p.getLocation().getDirection()).normalize().multiply(1.3D);
+        Vector victor = p.getLocation().getDirection().normalize().multiply(1.3D);
         p.setVelocity(new Vector(victor.getX(), victor.getY(), victor.getZ()));   
     }
 }

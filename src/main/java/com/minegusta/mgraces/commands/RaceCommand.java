@@ -4,6 +4,9 @@ import com.google.common.collect.Lists;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.files.DefaultConfigFile;
+import com.minegusta.mgraces.files.PlayerConf;
+import com.minegusta.mgraces.files.PlayerFile;
+import com.minegusta.mgraces.util.TotalRaces;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -43,6 +46,12 @@ public class RaceCommand implements CommandExecutor
 
         if(args.length == 1)
         {
+            if(args[0].equalsIgnoreCase("amount"))
+            {
+                sendAmount();
+                return true;
+            }
+
             if(args[0].equalsIgnoreCase("show"))
             {
                 sendOwnInfo(show);
@@ -158,6 +167,15 @@ public class RaceCommand implements CommandExecutor
         }
     }
 
+    private void sendAmount()
+    {
+        p.sendMessage(ChatColor.GOLD + " - - - - - " + ChatColor.YELLOW + race + "Total Amount of Races" + ChatColor.GOLD + " - - - - - ");
+        for(String s : TotalRaces.get())
+        {
+            p.sendMessage(prefix + ChatColor.YELLOW + " - " + s);
+        }
+    }
+
     private boolean isRace(String s)
     {
         return s.equalsIgnoreCase("Dwarf") || s.equalsIgnoreCase("Elf") || s.equalsIgnoreCase("human") || s.equalsIgnoreCase("enderborn") || s.equalsIgnoreCase("demon") || s.equalsIgnoreCase("aurora");
@@ -206,7 +224,7 @@ public class RaceCommand implements CommandExecutor
     }
 
 
-    private List<String> help = Lists.newArrayList("/Race Help " + ChatColor.GRAY + "- Show this help menu.", "/Race List " + ChatColor.GRAY + "- Display a list of races.", "/Race Info <Race> " + ChatColor.GRAY + "- Info on the given race.", "/Race Show " + ChatColor.GRAY + "- Show info about your race.", "/Race Cure " + ChatColor.GRAY + "- Display cure info.", "/Race Infect <Race> " + ChatColor.GRAY + "- Show how to become a race.", "/Race Recipes " + ChatColor.GRAY + "- Show all recipes related to races.");
+    private List<String> help = Lists.newArrayList("/Race Help " + ChatColor.GRAY + "- Show this help menu.", "/Race Amount " + ChatColor.GRAY + "- Show how many people there are per race.", "/Race List " + ChatColor.GRAY + "- Display a list of races.", "/Race Info <Race> " + ChatColor.GRAY + "- Info on the given race.", "/Race Show " + ChatColor.GRAY + "- Show info about your race.", "/Race Cure " + ChatColor.GRAY + "- Display cure info.", "/Race Infect <Race> " + ChatColor.GRAY + "- Show how to become a race.", "/Race Recipes " + ChatColor.GRAY + "- Show all recipes related to races.");
     private List<String> races = Lists.newArrayList("Elf", "Dwarf", "Enderborn", "Demon", "Human", "Aurora");
 
     private static List<String> elfInfo = Lists.newArrayList("Elves always have a speed boost.", "Elves have " + ChatColor.RED + Integer.toString(conf.elfHealth()/2) + ChatColor.YELLOW + " hearts health.", "Elves get 15 seconds of speed II when eating vegetarian food.", "When in water, elves regenerate health.", "Elves can instantly tame any animal.", "Elves take additional damage from fire.", "They are skilled archers and deal additional bow damage.");
@@ -224,6 +242,4 @@ public class RaceCommand implements CommandExecutor
 
     private String[][] recipes = {{"Crystal Eye", "1 Eye of Ender", "4 Diamonds", "4 Emeralds"}, {"Elf Stew", "2 Carrots", "2 Potatoes", "1 Mushroom Soup", "1 Leaf", "3 Dandellions"}, {"Shiny Gem", "4 Gold Bars", "4 Gold Blocks" , "1 Nether Star"}, {"Ice Crystal", "1 Diamond", "4 Snowballs", "4 Snow Blocks"}};
     private List<String> cure = Lists.newArrayList("If you want to become human again, follow these steps:", ChatColor.GRAY + "Build an altar out of:", " - " + ChatColor.DARK_PURPLE + "1 " + Material.getMaterial(conf.altarBlock()).name(), " - " + ChatColor.DARK_PURPLE + Integer.toString(conf.altarSecondBlockAmount()) + " " + Material.getMaterial(conf.altarSecondBlock()).name(), "You need the following items in your inventory:");
-
-
 }

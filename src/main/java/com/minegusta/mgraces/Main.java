@@ -9,6 +9,7 @@ import com.minegusta.mgraces.listener.RaceListener;
 import com.minegusta.mgraces.recipes.Recipes;
 import com.minegusta.mgraces.tasks.BoostTask;
 import com.minegusta.mgraces.tasks.SaveTask;
+import com.minegusta.mgraces.util.TotalRaces;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -52,6 +53,9 @@ public class Main extends JavaPlugin
 
         //Commands
         getCommand("race").setExecutor(new RaceCommand());
+
+        //Count races from file
+        TotalRaces.listAmounts();
     }
 
     @Override

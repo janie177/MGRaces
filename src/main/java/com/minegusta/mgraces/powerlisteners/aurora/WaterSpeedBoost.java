@@ -20,6 +20,7 @@ public class WaterSpeedBoost
 
         if(isInWater() && isAurora())
         {
+            e.setCancelled(true);
             apply();
         }
     }
@@ -37,7 +38,7 @@ public class WaterSpeedBoost
 
     private void apply()
     {
-        Vector victor = p.getLocation().getDirection().normalize().multiply(1.3D);
+        Vector victor = p.getLocation().getDirection().normalize().multiply(1.8D);
         p.setVelocity(new Vector(victor.getX(), victor.getY(), victor.getZ()));   
     }
 }

@@ -6,7 +6,7 @@
 
     <groupId>com.minegusta</groupId>
     <artifactId>MgRaces</artifactId>
-    <version>0.1.3.7</version>
+    <version>0.1.3.8</version>
     <packaging>jar</packaging>
 
     <name>MgRaces</name>

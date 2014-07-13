@@ -25,6 +25,6 @@ public class InvisibleBoost
 
     private void apply()
     {
-        new PermanentPotionEffect(uuid, PotionEffectType.INVISIBILITY, 0, 2);
+        new PermanentPotionEffect(uuid, PotionEffectType.INVISIBILITY, 0, 3);
     }
 }

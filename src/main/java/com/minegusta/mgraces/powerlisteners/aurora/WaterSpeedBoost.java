@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
+import org.bukkit.event.player.PlayerToggleSprintEvent;
 import org.bukkit.util.Vector;
 
 public class WaterSpeedBoost
@@ -13,7 +14,7 @@ public class WaterSpeedBoost
     private Player p;
     private Block b;
 
-    public WaterSpeedBoost(PlayerToggleSneakEvent e)
+    public WaterSpeedBoost(PlayerToggleSprintEvent e)
     {
         this.p = e.getPlayer();
         this.b = e.getPlayer().getLocation().getBlock();
@@ -38,7 +39,7 @@ public class WaterSpeedBoost
 
     private void apply()
     {
-        Vector victor = p.getLocation().getDirection().normalize().multiply(1.8D);
-        p.setVelocity(new Vector(victor.getX(), victor.getY(), victor.getZ()));   
+        Vector victor = p.getLocation().getDirection().normalize().multiply(3.6D);
+        p.setVelocity(victor);
     }
 }

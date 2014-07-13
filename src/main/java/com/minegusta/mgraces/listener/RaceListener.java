@@ -167,6 +167,15 @@ public class RaceListener implements Listener
     }
 
     @EventHandler
+    public void event(PlayerToggleSprintEvent e)
+    {
+        //World Check
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+
+        new WaterSpeedBoost(e);
+    }
+
+    @EventHandler
     public void event(PlayerChangedWorldEvent e)
     {
         new SwitchWorld(e);

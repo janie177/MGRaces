@@ -167,7 +167,7 @@ public class RaceListener implements Listener
     }
 
     @EventHandler
-    public void event(PlayerToggleSprintEvent e)
+    public void event(PlayerToggleSneakEvent e)
     {
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;

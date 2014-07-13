@@ -14,7 +14,7 @@ public class WaterSpeedBoost
     private Player p;
     private Block b;
 
-    public WaterSpeedBoost(PlayerToggleSprintEvent e)
+    public WaterSpeedBoost(PlayerToggleSneakEvent e)
     {
         this.p = e.getPlayer();
         this.b = e.getPlayer().getLocation().getBlock();
@@ -39,7 +39,7 @@ public class WaterSpeedBoost
 
     private void apply()
     {
-        Vector victor = p.getLocation().getDirection().normalize().multiply(3.6D);
+        Vector victor = p.getLocation().getDirection().normalize().multiply(2.2D);
         p.setVelocity(victor);
     }
 }

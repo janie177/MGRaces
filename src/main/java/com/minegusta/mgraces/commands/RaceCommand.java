@@ -4,8 +4,6 @@ import com.google.common.collect.Lists;
 import com.minegusta.mgraces.data.TempData;
 import com.minegusta.mgraces.files.DefaultConf;
 import com.minegusta.mgraces.files.DefaultConfigFile;
-import com.minegusta.mgraces.files.PlayerConf;
-import com.minegusta.mgraces.files.PlayerFile;
 import com.minegusta.mgraces.util.TotalRaces;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

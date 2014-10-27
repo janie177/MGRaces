@@ -65,8 +65,8 @@ public class TameBoost
 
         if(effect)
         {
-            new PlayEffect(e, Effect.POTION_SWIRL, 2, 2, 2, 20);
-            new PlayEffect(e, Effect.HAPPY_VILLAGER, 2, 2, 2, 10);
+            PlayEffect.play(e, Effect.POTION_SWIRL, 2, 2, 2, 20);
+            PlayEffect.play(e, Effect.HAPPY_VILLAGER, 2, 2, 2, 10);
         }
     }
 }

@@ -15,7 +15,10 @@ import com.minegusta.mgraces.powerlisteners.shared.WaterWeakness;
 import com.minegusta.mgraces.race.*;
 import com.minegusta.mgraces.util.WorldCheck;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.UUID;
 
 public class BoostTask
 {
@@ -25,35 +28,39 @@ public class BoostTask
         {
             for(MGPlayer mGP : TempData.raceMap.values())
             {
+                UUID uuid = mGP.getUUID();
+                Player p = Bukkit.getPlayer(uuid);
+                Race race = mGP.getRace();
+                
                 if(!WorldCheck.worldCheck(Bukkit.getPlayer(mGP.getUUID()).getWorld()))continue;
-                if(mGP.getRace() instanceof Human)
+                if(race instanceof Human)
                 {
                     continue;
                 }
-                if(mGP.getRace() instanceof Elf)
+                if(race instanceof Elf)
                 {
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.SPEED, 0, 10);
+                    PermanentPotionEffect.apply(p, PotionEffectType.SPEED, 0, 10);
                     continue;
                 }
-                if(mGP.getRace() instanceof Dwarf)
+                if(race instanceof Dwarf)
                 {
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.FAST_DIGGING, 0, 10);
+                    PermanentPotionEffect.apply(p, PotionEffectType.FAST_DIGGING, 0, 10);
                     continue;
                 }
-                if(mGP.getRace() instanceof EnderBorn)
+                if(race instanceof EnderBorn)
                 {
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.NIGHT_VISION, 0, 15);
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.JUMP, 0, 10);
+                    PermanentPotionEffect.apply(p, PotionEffectType.NIGHT_VISION, 0, 15);
+                    PermanentPotionEffect.apply(p, PotionEffectType.JUMP, 1, 10);
                     continue;
                 }
-                if(mGP.getRace() instanceof Aurora)
+                if(race instanceof Aurora)
                 {
                     continue;
                 }
-                if(mGP.getRace() instanceof Demon)
+                if(race instanceof Demon)
                 {
-                    new WorldWeakness(mGP);
-                    new PermanentPotionEffect(mGP.getUUID(), PotionEffectType.FIRE_RESISTANCE, 1, 10);
+                    WorldWeakness.check(mGP.getUUID());
+                    PermanentPotionEffect.apply(p, PotionEffectType.FIRE_RESISTANCE, 1, 10);
                 }
             }
         }
@@ -65,38 +72,42 @@ public class BoostTask
         {
             for(MGPlayer mGP : TempData.raceMap.values())
             {
+                UUID uuid = mGP.getUUID();
+                Player p = Bukkit.getPlayer(uuid);
+                Race race = mGP.getRace();
+                
                 if(!WorldCheck.worldCheck(Bukkit.getPlayer(mGP.getUUID()).getWorld()))continue;
-                if(mGP.getRace() instanceof Human)
+                if(race instanceof Human)
                 {
                     continue;
                 }
-                if(mGP.getRace() instanceof Elf)
+                if(race instanceof Elf)
                 {
-                    new WaterBoost(mGP);
+                    WaterBoost.apply(p);
                     continue;
                 }
-                if(mGP.getRace() instanceof Dwarf)
+                if(race instanceof Dwarf)
                 {
 
                     continue;
                 }
-                if(mGP.getRace() instanceof EnderBorn)
+                if(race instanceof EnderBorn)
                 {
-                    new WaterWeakness(mGP);
-                    new InvisibleBoost(mGP);
+                    new WaterWeakness(p);
+                    InvisibleBoost.apply(p);
                     continue;
                 }
-                if(mGP.getRace() instanceof Aurora)
+                if(race instanceof Aurora)
                 {
-                    new ColdBoost(mGP);
-                    new HeatWeakness(mGP);
+                    ColdBoost.apply(p);
+                    HeatWeakness.apply(p);
                     continue;
                 }
-                if(mGP.getRace() instanceof Demon)
+                if(race instanceof Demon)
                 {
-                    new WaterWeakness(mGP);
-                    new NetherBoost(mGP);
-                    new IceWeakness(mGP);
+                    new WaterWeakness(p);
+                    NetherBoost.isInNether(p);
+                    IceWeakness.isCold(p);
                 }
             }
         }

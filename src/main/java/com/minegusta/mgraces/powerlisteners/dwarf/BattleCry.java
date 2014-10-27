@@ -83,7 +83,7 @@ public class BattleCry
             return;
         }
         CoolDown.newCooldown(p.getUniqueId(), TempData.battleCryMap);
-        new PlayEffect(p, Effect.VILLAGER_THUNDERCLOUD, 2, 2, 2, 20);
+        PlayEffect.play(p, Effect.VILLAGER_THUNDERCLOUD, 2, 2, 2, 20);
         p.sendMessage(ChatColor.RED + "You knock back your enemies!");
         for(Entity e : p.getNearbyEntities(3.0, 3.0, 3.0))
         {

@@ -28,6 +28,7 @@ import com.minegusta.mgraces.powerlisteners.enderborn.BleedBoost;
 import com.minegusta.mgraces.powerlisteners.enderborn.MeatBoost;
 import com.minegusta.mgraces.util.WorldCheck;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.*;
@@ -46,7 +47,7 @@ public class RaceListener implements Listener
 
         //World Check
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
-        new SetHealth(e);
+        SetHealth.set(e.getPlayer());
 
     }
 
@@ -147,7 +148,7 @@ public class RaceListener implements Listener
         if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void event(AsyncPlayerChatEvent e)
     {
         //World Check

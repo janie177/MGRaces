@@ -56,6 +56,6 @@ public class KillBoost
     private void apply()
     {
         ((Player)killer).addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 20 * 4, 1));
-        new PlayEffect(killer.getUniqueId(), Effect.VILLAGER_THUNDERCLOUD, 1, 1, 1, 10);
+        PlayEffect.play((Player)killer, Effect.VILLAGER_THUNDERCLOUD, 1, 1, 1, 10);
     }
 }

@@ -74,7 +74,7 @@ public class BleedBoost
                     public void run() {
                         if(k % 20 == 0)
                         {
-                            new PlayEffect(le, Effect.CRIT, 1, 1, 1, 8);
+                            PlayEffect.play(le, Effect.CRIT, 1, 1, 1, 8);
                             le.damage(conf.bleedDamage());
                         }
                     }

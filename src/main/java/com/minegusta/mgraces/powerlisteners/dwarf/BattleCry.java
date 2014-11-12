@@ -30,7 +30,7 @@ public class BattleCry
         this.p = e.getPlayer();
         this.s = p.getItemInHand();
 
-        if(!e.isCancelled() && (e.getAction().equals(Action.RIGHT_CLICK_BLOCK)|| e.getAction().equals(Action.RIGHT_CLICK_AIR)))
+        if((e.getAction().equals(Action.RIGHT_CLICK_BLOCK)|| e.getAction().equals(Action.RIGHT_CLICK_AIR)))
         {
             run();
         }

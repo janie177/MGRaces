@@ -64,11 +64,10 @@ public class DemonInfect {
     }
 
     private boolean hasSheep() {
-        for (Entity e : p.getNearbyEntities(3, 2, 3)) {
+        for (Entity e : p.getNearbyEntities(5, 4, 5)) {
             if (e instanceof Sheep) {
                 sheep = (LivingEntity) e;
-                if(((Sheep)sheep).isAdult())return false;
-                return true;
+                if(!((Sheep)sheep).isAdult())return true;
             }
         }
         return false;
@@ -79,7 +78,7 @@ public class DemonInfect {
     }
 
     private boolean isChant() {
-        return chant.equalsIgnoreCase(message);
+        return message.toLowerCase().contains(chant.toLowerCase());
     }
 
     //make

@@ -24,7 +24,11 @@ public class AuroraInfect
     public AuroraInfect(PlayerDeathEvent e)
     {
         this.p = e.getEntity();
-        this.cause = e.getEntity().getLastDamageCause().getCause();
+        if(e.getEntity().getLastDamageCause() != null)
+        {
+            this.cause = e.getEntity().getLastDamageCause().getCause();
+        }
+        else return;
         this.crystal = p.getItemInHand();
 
         if(isDrown() && isHuman() && isCrystal() && isIceBiome())

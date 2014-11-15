@@ -40,11 +40,7 @@ public class BattleCry
     {
         this.p = e.getPlayer();
         this.s = p.getItemInHand();
-
-        if(!e.isCancelled())
-        {
-            run();
-        }
+        run();
     }
 
     private boolean canPVP()

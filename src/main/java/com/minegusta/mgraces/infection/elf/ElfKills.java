@@ -21,7 +21,14 @@ public class ElfKills {
     public ElfKills(EntityDeathEvent e)
     {
         this.killer = e.getEntity().getKiller();
-        this.cause = e.getEntity().getLastDamageCause().getCause();
+        if(e.getEntity().getLastDamageCause() != null)
+        {
+            this.cause = e.getEntity().getLastDamageCause().getCause();
+        }
+        else
+        {
+            return;
+        }
 
         if(isArrow() && isPlayer())
         {

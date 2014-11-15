@@ -1,6 +1,8 @@
 package com.minegusta.mgraces.listener;
 
 import com.minegusta.mgraces.cure.CureAltar;
+import com.minegusta.mgraces.files.DefaultConf;
+import com.minegusta.mgraces.health.RaceHealth;
 import com.minegusta.mgraces.health.SetHealth;
 import com.minegusta.mgraces.infection.aurora.AuroraInfect;
 import com.minegusta.mgraces.infection.demon.DemonInfect;
@@ -26,6 +28,7 @@ import com.minegusta.mgraces.powerlisteners.elf.FruitBoost;
 import com.minegusta.mgraces.powerlisteners.elf.TameBoost;
 import com.minegusta.mgraces.powerlisteners.enderborn.BleedBoost;
 import com.minegusta.mgraces.powerlisteners.enderborn.MeatBoost;
+import com.minegusta.mgraces.race.Human;
 import com.minegusta.mgraces.util.WorldCheck;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -46,8 +49,13 @@ public class RaceListener implements Listener
         new LoadToMap(e);
 
         //World Check
-        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))return;
+        if(!WorldCheck.worldCheck(e.getPlayer().getWorld()))
+        {
+            RaceHealth.setHealth(e.getPlayer().getUniqueId(), new Human());
+            return;
+        }
         SetHealth.set(e.getPlayer());
+
 
     }
 

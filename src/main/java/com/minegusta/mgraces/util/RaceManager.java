@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 
 public class RaceManager
 {
-    public String getRace(Player p)
+    public static String getRace(Player p)
     {
         return StringToRace.valueOf(TempData.raceMap.get(p.getUniqueId()).getRace().getName().toLowerCase()).getTitle();
     }

@@ -39,7 +39,7 @@ public class WGManager
         {
             for(ProtectedRegion r : set.getRegions())
             {
-                if(r.getFlags().containsKey(DefaultFlag.PVP) && r.getFlag(DefaultFlag.PVP) == StateFlag.State.DENY)
+                if(r.getFlags().containsKey(DefaultFlag.PVP) && r.getFlag(DefaultFlag.PVP) == StateFlag.State.ALLOW)
                 {
                     return false;
                 }

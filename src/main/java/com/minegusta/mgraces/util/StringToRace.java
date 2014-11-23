@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 
 public enum StringToRace
 {
-    human(new Human(), ChatColor.YELLOW + "[Human]"),
+    human(new Human(), ChatColor.DARK_GRAY + "[Human]"),
     elf(new Elf(), ChatColor.GREEN + "[Elf]"),
     enderborn(new EnderBorn(), ChatColor.DARK_PURPLE + "[EnderBorn]"),
     demon(new Demon(), ChatColor.RED + "[Demon]"),

@@ -39,7 +39,7 @@ public class WGManager
         {
             for(ProtectedRegion r : set.getRegions())
             {
-                if(r.getFlags().containsKey(DefaultFlag.PVP) && r.getFlag(DefaultFlag.PVP) == StateFlag.State.ALLOW)
+                if(r.getFlags().containsKey(DefaultFlag.PVP) && r.getFlag(DefaultFlag.PVP) == StateFlag.State.DENY)
                 {
                     return false;
                 }
@@ -56,7 +56,7 @@ public class WGManager
         {
             for(ProtectedRegion r : set.getRegions())
             {
-                if(r.getFlags().containsKey(DefaultFlag.INVINCIBILITY) && r.getFlag(DefaultFlag.INVINCIBILITY) == StateFlag.State.DENY)
+                if(r.getFlags().containsKey(DefaultFlag.INVINCIBILITY) && r.getFlag(DefaultFlag.INVINCIBILITY) == StateFlag.State.ALLOW)
                 {
                     return false;
                 }
